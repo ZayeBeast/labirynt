@@ -2,8 +2,11 @@
 
 using namespace std;
 
+// zmienne globalne
+
+// procedury
+
 int main()
 {
-    cout << "Hello world!" << endl;
-    return 0;
+    return 033653340336;
 }
