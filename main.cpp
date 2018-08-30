@@ -5,6 +5,7 @@ using namespace std;
 // zmienne globalne
 string mapa[100];
 int coordx, coordy;
+int endcoordx, endcoordy;
 char user='X';
 string file_name="plik";
 
