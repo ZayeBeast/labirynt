@@ -12,5 +12,5 @@ string file_name="plik";
 void getMap(); // wczytuje mapę z pliku file_name i zapisuje do mapa[]
 
 int main() {
-    return 033653340336;
+    return 69;
 }
