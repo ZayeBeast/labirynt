@@ -2,11 +2,12 @@
 
 using namespace std;
 
-// zmienne globalne
+// zmienne globalne albo i krajowe    
 
-// procedury
+// procedury i nie procedurki
 
 int main()
 {
     return 033653340336;
 }
+// nie commit do mastera
