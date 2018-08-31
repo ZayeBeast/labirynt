@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
 
 using namespace std;
 
@@ -11,7 +13,15 @@ string file_name="plik";
 
 // procedury
 void getMap(); // wczytuje mapę z pliku file_name i zapisuje do mapa[]
-void beginingcoords(); // bierze poczontkowew koordy i wrzuca do zmiennej
+void beginingcoords()
+{   do{
+        srand (time(NULL));
+            coordx = rand() % 100 + 1;
+        srand (time(NULL));
+            coordy = rand() % 100 + 1;
+        }while bool isWall(coordx, coordy) == true;
+ 
+    } // bierze poczontkowew koordy i wrzuca do zmiennej
 void targetcoords(); // bierze koordy celu/wyjścia i wrzuca do zmiennej
 bool isWall(int x, int y);  // czy na podanych kordach nie ma spacji
 char drawOnBufor(int x, int y, char c); // narysuj na x i y znak c i zwróć poprzednie co tam było
