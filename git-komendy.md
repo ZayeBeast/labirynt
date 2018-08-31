@@ -27,16 +27,25 @@
 - wejdź na https://github.com/new i stwórz nowe repo
 - `git remote add origin git@github.com:<username>/<nazwa repo na GH>.git` dodanie serwera do repo
 - `git push -u origin master` pushowanie mastera (musisz być na gałęzi 'master')
-- 
+
 # sklonowanie repo z serwera (jeżeli chcecie mieć możliwość pushowania commitów musicie oprosić autora o uprawnienia lub zrobić swojego forka)
+- `git clone git@github.com:<user>/<nazwa>.git`
 
 # commitowanie zmian w pliku
+- `git commit -aS`
+- lub jeżeli nie skonfigurowaliśmy gpg:
+- `git commit -a`
+- a to jest 'zatwierdzenie' zmian we wszystkich plikach, a S to podpisanie commit'a
 
 # dodawanie nowego pliku do repo
+- stwórz nowy plik
+- `git add <nazwa pliku>` dodaj 'rejestrowanie' tego pliku
 
 # tworzenie nowej gałęzi
+- git branch <nazwa>
 
 # ... i przechodzenie na nią
+- git checkout <nazwa>
 
 # ... lub prościej (create&switch)
 - `git checkout -b <nazwa>`
