@@ -1,6 +1,6 @@
 #include <iostream>
-#include <stdlib.h>     /* srand, rand */
-#include <time.h>       /* time */
+#include <cstdlib.>     /* srand, rand */
+#include <ctime.>       /* time */
 
 using namespace std;
 
@@ -15,11 +15,9 @@ string file_name="plik";
 void getMap(); // wczytuje mapę z pliku file_name i zapisuje do mapa[]
 void beginingcoords()
 {   do{
-        srand (time(NULL));
             coordx = rand() % 100 + 1;
-        srand (time(NULL));
             coordy = rand() % 100 + 1;
-        }while bool isWall(coordx, coordy) == true;
+        }while (isWall(coordx, coordy));
  
     } // bierze poczontkowew koordy i wrzuca do zmiennej
 void targetcoords(); // bierze koordy celu/wyjścia i wrzuca do zmiennej
@@ -31,5 +29,6 @@ void doEvent(); // wykonaj operację przypisaną do danego znaku (np WSAD)
 bool isEnd(); // czy jesteśmy na kordach wyjścia
 void doEnd(); // wykonaj animację wygranej i przerzuć do następnego pliku
 int main() {
-    return 69;
+    srand (time(NULL));
+        return 69;
 }
