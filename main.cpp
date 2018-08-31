@@ -7,8 +7,8 @@ typedef struct{int x; int y;} COORDS;
 
 // zmienne globalne
 string mapa[100];
-int coordx, coordy;
-int endcoordx, endcoordy;
+COORDS player_coords;
+COORDS end_coords;
 char user='X';
 string file_name="plik";
 
