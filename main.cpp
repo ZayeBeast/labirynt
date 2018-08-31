@@ -2,6 +2,9 @@
 
 using namespace std;
 
+//struktury
+typedef struct{int x; int y;} COORDS;
+
 // zmienne globalne
 string mapa[100];
 int coordx, coordy;
@@ -20,6 +23,7 @@ char getEvent(); // pobierz znak
 void doEvent(); // wykonaj operację przypisaną do danego znaku (np WSAD)
 bool isEnd(); // czy jesteśmy na kordach wyjścia
 void doEnd(); // wykonaj animację wygranej i przerzuć do następnego pliku
+
 int main() {
     return 69;
 }
