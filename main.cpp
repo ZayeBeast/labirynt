@@ -19,9 +19,7 @@ char drawOnBufor(int x, int y, char c); // narysuj na x i y znak c i zwróć pop
 void viewBufor(); // wypisz bufor na ekran
 char getEvent()
     {
-        char znak;
-        znak = getch();
-        return znak;
+        return getch();
     }// pobierz znak
 void doEvent()
     {
