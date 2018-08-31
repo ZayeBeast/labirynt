@@ -42,10 +42,10 @@
 - `git add <nazwa pliku>` dodaj 'rejestrowanie' tego pliku
 
 # tworzenie nowej gałęzi
-- git branch <nazwa>
+- `git branch <nazwa>`
 
 # ... i przechodzenie na nią
-- git checkout <nazwa>
+- `git checkout <nazwa>`
 
 # ... lub prościej (create&switch)
 - `git checkout -b <nazwa>`
