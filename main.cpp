@@ -21,12 +21,11 @@ char getEvent()
     {
         return getch();
     }// pobierz znak
-void doEvent()
+void doEvent(char c)
     {
-        char znak;
-        znak = getEvent();
-        znak = toupper(znak);
-        switch (znak)
+        
+        c = toupper(c);
+        switch (c)
         {
             case'W':
             {
@@ -49,7 +48,7 @@ void doEvent()
             }
             break;
         }   
-    }
+    
     }// wykonaj operację przypisaną do danego znaku (np WSAD)
 bool isEnd(); // czy jesteśmy na kordach wyjścia
 void doEnd(); // wykonaj animację wygranej i przerzuć do następnego pliku
