@@ -29,22 +29,34 @@ void doEvent(char c)
         {
             case'W':
             {
+                if(isWall(coordx,coordy+1)==false)
+                {    
                 coordy++;
+                }    
             }
             break;
             case'S':
             {
+                if(isWall(coordx,coordy-1)==false)
+                {    
                 coordy--;
+                }    
             }
             break;
             case 'A':
             {
+                if(isWall(coordx-1,coordy)==false)
+                {    
                 coordx--;
+                }    
             }
             break;
             case'D':
             {
+                if(isWall(coordx+1,coordy)==false)
+                {    
                 coordx++;
+                }    
             }
             break;
         }   
