@@ -23,7 +23,36 @@ char getEvent()
         znak = getch();
         return znak;
     }// pobierz znak
-void doEvent(); // wykonaj operację przypisaną do danego znaku (np WSAD)
+void doEvent()
+    {
+        char znak;
+        znak = getEvent();
+        znak = toupper(znak);
+        switch (znak)
+        {
+            case'W':
+            {
+                coordy++;
+            }
+            break;
+            case'S':
+            {
+                coordy--;
+            }
+            break;
+            case 'A':
+            {
+                coordx--;
+            }
+            break;
+            case'D':
+            {
+                coordx++;
+            }
+            break;
+        }   
+    }
+    }// wykonaj operację przypisaną do danego znaku (np WSAD)
 bool isEnd(); // czy jesteśmy na kordach wyjścia
 void doEnd(); // wykonaj animację wygranej i przerzuć do następnego pliku
 int main() {
