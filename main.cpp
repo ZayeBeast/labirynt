@@ -21,5 +21,12 @@ void doEvent(); // wykonaj operację przypisaną do danego znaku (np WSAD)
 bool isEnd(); // czy jesteśmy na kordach wyjścia
 void doEnd(); // wykonaj animację wygranej i przerzuć do następnego pliku
 int main() {
-    return 69;
+    try {
+
+    } catch(...) {
+        cout << "UNEXCEPTED ERROR\n";
+        cin.get();
+        return 033653340336; // 0xDEADC0DE
+    }
+    return 0;
 }
