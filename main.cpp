@@ -23,17 +23,83 @@ void doEvent(); // wykonaj operację przypisaną do danego znaku (np WSAD)
 bool isEnd(); // czy jesteśmy na kordach wyjścia
 class pojemnik {
     string s;
-    void sort() {
-
+    int part(int l, int r){
+        string x = get(l);
+        int i = l, j = r;
+        string w;
+        while(1) {
+            while (get(j) > x)j--;
+            while (get(i) < x)i++;
+            if (i<j) {
+                w = get(i);
+                set(i, get(j));
+                set(j, w);
+                i++;
+                j--;
+            }
+            else return j;
+        }
     }
-    void push(string) {
-
+    public:
+    void sort(int l=0, int r=-1) {
+        // QuickSort
+        if(r==-1)r=len()-1;
+        int q;
+        if (l < r) {
+            q = part(l, r);
+            sort(l, q);
+            sort(q+1, r);
+        }
     }
-    size_t search(string) {
-
+    size_t len() {
+        size_t i = 0;   // koniec wyszukanego elementu
+        size_t x = 0;   // id wyszukanego elementu
+        while((i=s.find(";", i)+1))++x;
+        return x;
     }
-    string get(size_t) {//zwraca ":" jeżeli nie ma elementu o takim ID
-
+    void push(string ns) {
+        s +=  ns + ";";
+    }
+    void set(size_t ix, string ns) {//zwraca ":" jeżeli nie ma elementu o takim ID
+        size_t i = 0;   // koniec wyszukanego elementu
+        size_t j = 0;   // początek wyszukanego elementu
+        size_t x = 0;   // id wyszukanego elementu
+        while((i=s.find(";", i)+1)) {
+            if(ix==x) {
+                s=s.substr(0,j)+ns+s.substr(i-1);
+                break;
+            }
+            ++x;
+            j=i;
+        }
+    }
+    size_t search(string q) {
+        size_t i = 0;   // koniec wyszukanego elementu
+        size_t j = 0;   // początek wyszukanego elementu
+        size_t x = 0;   // id wyszukanego elementu
+        while((i=s.find(";", i)+1)) {
+            string ns = s.substr(j,i-j-1);//wyszukany element
+            if(q==ns) return x;
+            ++x;
+            j=i;
+        }
+        return -1;
+    }
+    string get(size_t ix) {//zwraca ":" jeżeli nie ma elementu o takim ID
+        size_t i = 0;   // koniec wyszukanego elementu
+        size_t j = 0;   // początek wyszukanego elementu
+        size_t x = 0;   // id wyszukanego elementu
+        while((i=s.find(";", i)+1)) {
+            if(ix==x) {
+                return s.substr(j,i-j-1);
+            }
+            ++x;
+            j=i;
+        }
+        return ":";
+    }
+    string cont() {
+        return s;
     }
 };
 bool doEnd() {                  // wykonaj animację wygranej i przerzuć do następnego pliku
