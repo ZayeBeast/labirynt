@@ -39,9 +39,18 @@ class pojemnik {
             j=i;
         }
         return -1;
-
     }
-    string get(size_t) {//zwraca ":" jeżeli nie ma elementu o takim ID
+    string get(size_t ix) {//zwraca ":" jeżeli nie ma elementu o takim ID
+        size_t i = 0;   // koniec wyszukanego elementu
+        size_t j = 0;   // początek wyszukanego elementu
+        size_t x = 0;   // id wyszukanego elementu
+        while((i=s.find(";", i)+1)) {
+            if(ix==x) {
+                return s.substr(j,i-j-1);
+            }
+            ++x;
+            j=i;
+        }
 
     }
 };
