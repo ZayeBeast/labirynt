@@ -38,6 +38,7 @@ class pojemnik {
 };
 bool doEnd() {                  // wykonaj animację wygranej i przerzuć do następnego pliku
    string plik;
+   size_t index;
     
    pojemnik p1;                      
        struct dirent * plik;
@@ -53,10 +54,11 @@ bool doEnd() {                  // wykonaj animację wygranej i przerzuć do nas
         throw "Nie udalo sie wylistowac katalogow";              
                                 
    p1.sort();                  
-                   
-   prev_file = p1.get(p1.search(plik)+1);   
+    
+   index = p1.search(plik)
+   prev_file = p1.get(index+1);   
     file_name = mapy+"/"+prev_file;
-    if(size_t search(plik)==-1)
+    if(index==-1)
         {
          return false;
         }        
