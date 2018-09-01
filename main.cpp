@@ -1,4 +1,5 @@
 #include <iostream>
+#include <dirent.h>
 
 using namespace std;
 
@@ -103,33 +104,33 @@ class pojemnik {
     }
 };
 bool doEnd() {                  // wykonaj animację wygranej i przerzuć do następnego pliku
-   
+
    size_t index;
-    
-   pojemnik p1;                      
+
+   pojemnik p1;
        struct dirent * plik;
     DIR * sciezka;
 
-    if(( sciezka = opendir( mapy ) ) ) {
+    if(( sciezka = opendir( mapy.c_str() ) ) ) {
         while(( plik = readdir( sciezka ) ) )
-           if(plik->d_name.substr(plik->d_name.size()-3) == string(".map"))
+           if(string(plik->d_name).substr(string(plik->d_name).size()-3) == string(".map"))
                 p1.push( plik->d_name );
         closedir( sciezka );
     }
     else
-        throw "Nie udalo sie wylistowac katalogow";              
-                                
-   p1.sort();                  
-    
-   index = p1.search(prev_file)
-   prev_file = p1.get(index+1);   
+        throw "Nie udalo sie wylistowac katalogow";
+
+   p1.sort();
+
+   index = p1.search(prev_file);
+   prev_file = p1.get(index+1);
     file_name = mapy+"/"+prev_file;
-    if(index==-1)
+    if(index==(size_t)-1)
         {
          return false;
-        }        
+        }
     return true;
-        
+}
 
 
 int main() {
