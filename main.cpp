@@ -37,7 +37,7 @@ class pojemnik {
     }
 };
 bool doEnd() {                  // wykonaj animację wygranej i przerzuć do następnego pliku
-   string plik;
+   
    size_t index;
     
    pojemnik p1;                      
@@ -45,7 +45,7 @@ bool doEnd() {                  // wykonaj animację wygranej i przerzuć do nas
     DIR * sciezka;
 
     if(( sciezka = opendir( mapy ) ) ) {
-        while(( plik = readdir( sciezka ) ) )
+        while(( plik = readdir( sciezka.map ) ) )
              p1.push( plik->d_name );
 
         closedir( sciezka );
@@ -55,7 +55,7 @@ bool doEnd() {                  // wykonaj animację wygranej i przerzuć do nas
                                 
    p1.sort();                  
     
-   index = p1.search(plik)
+   index = p1.search(prev_file)
    prev_file = p1.get(index+1);   
     file_name = mapy+"/"+prev_file;
     if(index==-1)
