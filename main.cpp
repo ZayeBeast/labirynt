@@ -21,11 +21,12 @@ void doEvent(); // wykonaj operację przypisaną do danego znaku (np WSAD)
 bool isEnd(); // czy jesteśmy na kordach wyjścia
 class pojemnik {
     string s;
+    public:
     void sort() {
 
     }
-    void push(string) {
-
+    void push(string ns) {
+        s += ns + ";";
     }
     size_t search(string) {
 
