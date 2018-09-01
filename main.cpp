@@ -20,15 +20,25 @@ char getEvent(); // pobierz znak
 void doEvent(); // wykonaj operację przypisaną do danego znaku (np WSAD)
 bool isEnd(); // czy jesteśmy na kordach wyjścia
 class pojemnik {
-    string s;
     public:
+    string s;
     void sort() {
 
     }
     void push(string ns) {
-        s += ns + ";";
+        s +=  ns + ";";
     }
-    size_t search(string) {
+    size_t search(string q) {
+        size_t i = 0;   // koniec wyszukanego elementu
+        size_t j = 0;   // początek wyszukanego elementu
+        size_t x = 0;   // id wyszukanego elementu
+        while((i=s.find(";", i)+1)) {
+            string ns = s.substr(j,i-j-1);//wyszukany element
+            if(q==ns) return x;
+            ++x;
+            j=i;
+        }
+        return -1;
 
     }
     string get(size_t) {//zwraca ":" jeżeli nie ma elementu o takim ID
@@ -47,5 +57,13 @@ bool doEnd() { // wykonaj animację wygranej i przerzuć do następnego pliku
     //TODO: MrDarkness19: a jak wszystko ok to zwróć true
 }
 int main() {
+    string a;
+    pojemnik p;
+    p.push("a");
+    p.push("b");
+    p.push("c");
+    p.push("d");
+    cout<<p.s;
+    cout<<p.search("d");
     return 69;
 }
