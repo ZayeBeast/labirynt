@@ -12,27 +12,25 @@ string file_name="plik";
 
 // procedury
 void getMap(); // wczytuje mapę z pliku file_name i zapisuje do mapa[]
-fstream file_name;
-file_name.open("file_name", ios::in);
+{
+std::fstream file;
+file.open(file_name, ios::in);
 
-if(file_name.good()==false)
+if(file.good()==false)
 {
     throw "File does not exist";
-    exit();
+   
 }
 string line;
-int line_number=1;
 i=0
-while (getline(file_name, line))
-{    
-    
+while (getline(file, line))
+{        
     mapa[i] = line
     i++
-    line_number++;
 }
 
-file_name.close()
-
+file.close()
+}
 
 
 
