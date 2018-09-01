@@ -45,9 +45,9 @@ bool doEnd() {                  // wykonaj animację wygranej i przerzuć do nas
     DIR * sciezka;
 
     if(( sciezka = opendir( mapy ) ) ) {
-        while(( plik = readdir( sciezka.map ) ) )
-             p1.push( plik->d_name );
-
+        while(( plik = readdir( sciezka ) ) )
+           if(plik->d_name.substr(plik->d_name.size()-3) == string(".map"))
+                p1.push( plik->d_name );
         closedir( sciezka );
     }
     else
