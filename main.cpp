@@ -35,15 +35,15 @@ class pojemnik {
     }
 };
 bool doEnd() { // wykonaj animację wygranej i przerzuć do następnego pliku
-    //TODO: MrDarkness19: stworzenie nowego obiektu pojemnika
-    //TODO: MrDarkness19: wrzucanie kolejnych nazw plików (tylko z rozszerzeniem .map!!!)
+   pojemnik p1; //TODO: MrDarkness19: stworzenie nowego obiektu pojemnika
+   pojemnik.push()//TODO: MrDarkness19: wrzucanie kolejnych nazw plików (tylko z rozszerzeniem .map!!!)
     //                    za pomocą funkcji pojemnik::push()
-    //TODO: MrDarkness19: przesortowanie tego obiektu za pomocą funkcji pojemnik::sort()
-    //TODO: MrDarkness19: znalezienie w pojemniku aktualnie otwartej mapy w pojemniku
-    //TODO: MrDarkness19: ustawienie aktualnie otwartej mapy na następną
+   pojemnik.sort() //TODO: MrDarkness19: przesortowanie tego obiektu za pomocą funkcji pojemnik::sort()
+   pojemnik.search(plik)//TODO: MrDarkness19: znalezienie w pojemniku aktualnie otwartej mapy w pojemniku
+   pojemnik.get(search(plik)+1) //TODO: MrDarkness19: ustawienie aktualnie otwartej mapy na następną
     //TODO: Nircek: animacja
-    //TODO: MrDarkness19: jeżeli się nie udało to zwróć false
-    //TODO: MrDarkness19: a jak wszystko ok to zwróć true
+   return false;//TODO: MrDarkness19: jeżeli się nie udało to zwróć false
+   return true;//TODO: MrDarkness19: a jak wszystko ok to zwróć true
 }
 int main() {
     return 69;
