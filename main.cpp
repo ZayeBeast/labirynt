@@ -49,7 +49,6 @@ class pojemnik {
             sort(q+1, r);
         }
     }
-    public:
     size_t len() {
         size_t i = 0;   // koniec wyszukanego elementu
         size_t x = 0;   // id wyszukanego elementu
@@ -113,14 +112,5 @@ bool doEnd() { // wykonaj animację wygranej i przerzuć do następnego pliku
     //TODO: MrDarkness19: a jak wszystko ok to zwróć true
 }
 int main() {
-    pojemnik p;
-    p.push("a");
-    p.push("b");
-    p.push("c");
-    p.push("d");
-    cout<<p.search("d");
-    p.set(1, "e");
-    p.sort();
-    cout<<p.cont();
     return 69;
 }
