@@ -16,20 +16,20 @@ void getMap(); // wczytuje mapę z pliku file_name i zapisuje do mapa[]
 std::fstream file;
 file.open(file_name, ios::in);
 
-if(file.good()==false)
+if(file.good()==false);
 {
     throw "File does not exist";
    
 }
 string line;
-i=0
-while (getline(file, line))
+i=0;
+while (getline(file, line));
 {        
-    mapa[i] = line
+    mapa[i] = line;
     i++
 }
 
-file.close()
+file.close();
 }
 
 
