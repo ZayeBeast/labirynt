@@ -7,7 +7,9 @@ string mapa[100];
 int coordx, coordy;
 int endcoordx, endcoordy;
 char user='X';
-string file_name="plik";
+string mapy="maps"; //folder, w którym są mapy
+string file_name;   //ścieżka do mapy
+string prev_file;   //nazwa poprzedniej mapy
 
 // procedury
 void getMap(); // wczytuje mapę z pliku file_name i zapisuje do mapa[]
@@ -37,24 +39,31 @@ class pojemnik {
 bool doEnd() {                  // wykonaj animację wygranej i przerzuć do następnego pliku
    string plik;
     
-   p1 p1;                       //TODO: MrDarkness19: stworzenie nowego obiektu pojemnika
-   p1.push(plik)                //TODO: MrDarkness19: wrzucanie kolejnych nazw plików (tylko z rozszerzeniem .map!!!)
-                                //                    za pomocą funkcji pojemnik::push()
-   p1.sort()                    //TODO: MrDarkness19: przesortowanie tego obiektu za pomocą funkcji pojemnik::sort()
+   pojemnik p1;                      
+       struct dirent * plik;
+    DIR * sciezka;
+
+    if(( sciezka = opendir( mapy ) ) ) {
+        while(( plik = readdir( sciezka ) ) )
+             p1.push( plik->d_name );
+
+        closedir( sciezka );
+    }
+    else
+        throw "Nie udalo sie wylistowac katalogow";              
+                                
+   p1.sort();                  
                    
-   p1.get(p1.search(plik)+1)    //TODO: MrDarkness19: ustawienie aktualnie otwartej mapy na następną
-   { if(size_t search(plik)==-1)
+   prev_file = p1.get(p1.search(plik)+1);   
+    file_name = mapy+"/"+prev_file;
+    if(size_t search(plik)==-1)
         {
          return false;
-        }
-     else
-        {
-         return true;
-        }
-    }                           //TODO: Nircek: animacja
-                   //TODO: MrDarkness19: jeżeli się nie udało to zwróć false
-                    //TODO: MrDarkness19: a jak wszystko ok to zwróć true
-}
+        }        
+    return true;
+        
+
+
 int main() {
     return 69;
 }
