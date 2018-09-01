@@ -28,7 +28,7 @@
 - `git remote add origin git@github.com:<username>/<nazwa repo na GH>.git` dodanie serwera do repo
 - `git push -u origin master` pushowanie mastera (musisz być na gałęzi 'master')
 
-# sklonowanie repo z serwera (jeżeli chcecie mieć możliwość pushowania commitów musicie oprosić autora o uprawnienia lub zrobić swojego forka)
+# sklonowanie repo z serwera (jeżeli chcecie mieć możliwość pushowania commitów musicie poprosić autora o uprawnienia lub zrobić swojego forka)
 - `git clone git@github.com:<user>/<nazwa>.git`
 
 # commitowanie zmian w pliku
