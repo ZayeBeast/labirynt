@@ -19,7 +19,32 @@ void viewBufor(); // wypisz bufor na ekran
 char getEvent(); // pobierz znak
 void doEvent(); // wykonaj operację przypisaną do danego znaku (np WSAD)
 bool isEnd(); // czy jesteśmy na kordach wyjścia
-void doEnd(); // wykonaj animację wygranej i przerzuć do następnego pliku
+class pojemnik {
+    string s;
+    void sort() {
+
+    }
+    void push(string) {
+
+    }
+    size_t search(string) {
+
+    }
+    string get(size_t) {//zwraca ":" jeżeli nie ma elementu o takim ID
+
+    }
+};
+bool doEnd() { // wykonaj animację wygranej i przerzuć do następnego pliku
+    //TODO: MrDarkness19: stworzenie nowego obiektu pojemnika
+    //TODO: MrDarkness19: wrzucanie kolejnych nazw plików (tylko z rozszerzeniem .map!!!)
+    //                    za pomocą funkcji pojemnik::push()
+    //TODO: MrDarkness19: przesortowanie tego obiektu za pomocą funkcji pojemnik::sort()
+    //TODO: MrDarkness19: znalezienie w pojemniku aktualnie otwartej mapy w pojemniku
+    //TODO: MrDarkness19: ustawienie aktualnie otwartej mapy na następną
+    //TODO: Nircek: animacja
+    //TODO: MrDarkness19: jeżeli się nie udało to zwróć false
+    //TODO: MrDarkness19: a jak wszystko ok to zwróć true
+}
 int main() {
     return 69;
 }
