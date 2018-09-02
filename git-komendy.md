@@ -58,3 +58,15 @@
 
 # pullowanie commitów (pobieranie commitów z serwera)
 - `git pull`
+
+# sprawdzanie zmian jakie różnią repo od ostatniego commita
+- `git diff`
+
+# sprawdzanie aktualnego stanu repo
+pokazuje takie rzeczy jak na jakiej aktualnie jesteśmy, jakie pliki zostały zmodyfikowane/dodane/usunięte
+- `git status`
+
+# usunięcie zmian do ostatniego commita
+- `git checkout -- *`
+albo
+- `git reset --hard`
