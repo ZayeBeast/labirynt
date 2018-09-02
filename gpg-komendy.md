@@ -1,4 +1,4 @@
-- pobierz gpg (np [tutaj](https://gnupg.org/download/))
+- pobierz gpg (np [tutaj](https://gnupg.org/download/), wybierz te z dopiskiem `Simple installer for the current GnuPG`)
 - `gpg --full-gen-key` generowanie nowego klucza gpg
 - wybierz typ swojego klucza
 - wybierz długość swojego klucza (czym większa, tym trudniej złamać)
