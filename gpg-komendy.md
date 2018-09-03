@@ -9,7 +9,7 @@
 - wpisz hasło, które będzie zabezpieczać Twój klucz, **będziesz go musiał podawać przy każdym podpisywania commita, tagu etc.**
 - po wygenerowaniu klucza powinien wypisać się Twój fingerprint (np '155DC461762448AE414303B92769D6190A92139E')
 - jeżeli będziesz chciał go poznać w przyszłości wpisz `gpg --fingrprint`
-- `gpg --export-secret-key <id>` żeby wypisać swój klucz prywatny (który możesz przechowywać gdzieś zaszyfrowany w ramach backup'u)
+- `gpg -a --export-secret-key <id>` żeby wypisać swój klucz prywatny (który możesz przechowywać gdzieś zaszyfrowany w ramach backup'u)
 - `gpg -a --export <fingerprint>` żeby wypisać swój klucz publiczny, który [musisz podać GitHubowi](https://github.com/settings/gpg/new) i rozesłać go użytkownikom w sieci (w naszym wypadku wszystkim uczestnikom projektu lub całemu światu)
 - zaimportuj klucze [GitHuba](https://pgp.mit.edu/pks/lookup?op=get&search=0x5DE3E0509C47EA3CF04A42D34AEE18F83AFDEB23) oraz wszystkich użytkowników w sieci przez `gpg --import <nazwa pliku z kluczem>`
 - żeby wyświtlić fingerprinty wszystkich kluczy wpisz `gpg --fingerprint`
