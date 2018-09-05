@@ -34,7 +34,11 @@ int main() {
             if(isEnd())
                 doEnd();
         }
-    } catch(...) {
+    }catch(const char * c) {
+        cout << "error: " << c;
+        cin.get()
+        return 033653340336; // 0xDEADC0DE
+    }catch(...) {
         cout << "UNEXCEPTED ERROR\n";
         cin.get();
         return 033653340336; // 0xDEADC0DE
