@@ -7,7 +7,7 @@ using namespace std;
 string mapa[SIZE], bufor[SIZE];
 int coordx, coordy;
 int endcoordx, endcoordy;
-char user='X';
+char user='X', end='O';
 string file_name="plik";
 
 // procedury
@@ -15,9 +15,11 @@ void getMap(); // wczytuje mapę z pliku file_name i zapisuje do mapa[]
 void beginingcoords(); // bierze poczontkowew koordy i wrzuca do zmiennej
 void targetcoords(); // bierze koordy celu/wyjścia i wrzuca do zmiennej
 bool isWall(int x, int y);  // czy na podanych kordach nie ma spacji
-void refreshBufor() { // załaduj mapę do bufora
+void refreshBufor() { // załaduj mapę do bufora i nanieś na nie usera i wyjście
   for(size_t i=0; i<SIZE; ++i)
     bufor[i] = mapa[i];
+  drawOnBufor(coordx, coordy, user);
+  drawOnBufor(endcoordx, endcoordy, end);
 }
 char drawOnBufor(int x, int y, char c) { // narysuj na x i y znak c i zwróć poprzednie co tam było
   char oc = mapa[y][x];
