@@ -14,7 +14,10 @@ string file_name="plik";
 
 // procedury
 void getMap(); // wczytuje mapę z pliku file_name i zapisuje do mapa[]
-bool isExist(COORDS p); // sprawdza czy dane pole jest na mapie
+bool isExist(COORDS p) { // sprawdza czy dane pole jest na mapie
+  if(p.y>=SIZE)return false;
+  return mapa[p.y].size()>=p.x;
+}
 COORDS randomCoords(bool notWall=true) {
   COORDS c;
   do {
