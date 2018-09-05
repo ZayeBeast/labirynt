@@ -1,4 +1,3 @@
-
 #include <iostream>
 
 using namespace std;
@@ -14,7 +13,7 @@ string file_name="plik";
 void getMap(); // wczytuje mapę z pliku file_name i zapisuje do mapa[]
 void beginingcoords(); // bierze poczontkowew koordy i wrzuca do zmiennej
 void targetcoords(); // bierze koordy celu/wyjścia i wrzuca do zmiennej
-bool isWall(int coordy, int coordx);  // czy na podanych kordach nie ma spacji
+bool isWall(int coordx, int coordy)  // czy na podanych kordach nie ma spacji
 {
     if (mapa[coordy][coordx] == ' ') //sprawdza czy space
         return false;                //zwraca, czy jest, czy nie
