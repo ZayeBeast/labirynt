@@ -24,7 +24,12 @@ char drawOnBufor(int x, int y, char c) { // narysuj na x i y znak c i zwróć po
   mapa[y][x] = c;
   return oc;
 }
-void viewBufor(); // wypisz bufor na ekran
+void viewBufor() { // wypisz bufor na ekran
+  if(system(NULL)) // sprawdzanie czy konsola dostępna
+    if(system("CLS")) // sprawdzanie czy komenda CLS zadziałała
+      if(system("clear"))
+        cout << string('\n',0xFF);
+}
 char getEvent(); // pobierz znak
 void doEvent(); // wykonaj operację przypisaną do danego znaku (np WSAD)
 bool isEnd(); // czy jesteśmy na kordach wyjścia
