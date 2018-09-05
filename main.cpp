@@ -19,7 +19,11 @@ void refreshBufor() { // załaduj mapę do bufora
   for(size_t i=0; i<SIZE; ++i)
     bufor[i] = mapa[i];
 }
-char drawOnBufor(int x, int y, char c); // narysuj na x i y znak c i zwróć poprzednie co tam było
+char drawOnBufor(int x, int y, char c) { // narysuj na x i y znak c i zwróć poprzednie co tam było
+  char oc = mapa[y][x];
+  mapa[y][x] = c;
+  return oc;
+}
 void viewBufor(); // wypisz bufor na ekran
 char getEvent(); // pobierz znak
 void doEvent(); // wykonaj operację przypisaną do danego znaku (np WSAD)
