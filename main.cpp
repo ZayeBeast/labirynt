@@ -29,7 +29,9 @@ COORDS randomCoords(bool notWall=true) {
   return c;
 }
 void beginingcoords(); // bierze poczontkowew koordy i wrzuca do zmiennej
-void targetcoords(); // bierze koordy celu/wyjścia i wrzuca do zmiennej
+void targetcoords() { // bierze koordy celu/wyjścia i wrzuca do zmiennej
+  end_coords = randomCoords();
+}
 bool isWall(int x, int y);  // czy na podanych kordach nie ma spacji
 char drawOnBufor(int x, int y, char c); // narysuj na x i y znak c i zwróć poprzednie co tam było
 void viewBufor(); // wypisz bufor na ekran
