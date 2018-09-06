@@ -37,9 +37,5 @@ void doEvent(); // wykonaj operację przypisaną do danego znaku (np WSAD)
 bool isEnd(); // czy jesteśmy na kordach wyjścia
 void doEnd(); // wykonaj animację wygranej i przerzuć do następnego pliku
 int main() {
-    mapa[0] = "abcd";
-    refreshBufor();
-    mapa[0] = "";
-    cout << bufor[0];
     return 69;
 }
