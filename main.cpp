@@ -103,10 +103,14 @@ class pojemnik {
         return s;
     }
 };
-bool doEnd() {                  // wykonaj animację wygranej i przerzuć do następnego pliku
+void animate() {
+
+}
+bool doEnd(bool animation=true) {                  // wykonaj animację wygranej i przerzuć do następnego pliku
 
    size_t index;
-
+   if(animation)
+     animate();
    pojemnik p1;
        struct dirent * plik;
     DIR * sciezka;
