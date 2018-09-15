@@ -1,7 +1,12 @@
 #include <iostream>
+<<<<<<< HEAD
 #include <cstdlib>     /* srand, rand */
 #include <ctime>       /* time */
 
+=======
+#include <fstream>
+#include <cstdlib>
+>>>>>>> origin/getmap()-by-pan-ciemność
 using namespace std;
 
 // zmienne globalne
@@ -13,7 +18,6 @@ char user='X';
 string file_name="plik";
 
 // procedury
-void getMap(); // wczytuje mapę z pliku file_name i zapisuje do mapa[]
 void beginingcoords()
 {   do{
             coordx = rand() % 100 + 1;
@@ -21,6 +25,29 @@ void beginingcoords()
         }while (isWall(coordx, coordy));
  
     } // bierze poczontkowew koordy i wrzuca do zmiennej
+void getMap()
+{
+std::fstream file;
+file.open(file_name, ios::in);
+
+if(file.good()==false)
+{
+    throw "File does not exist";
+   
+}
+string line;
+i=0;
+while (getline(file, line))
+{        
+    mapa[i] = line;
+    i++;
+}
+
+file.close();
+}
+
+
+
 void targetcoords(); // bierze koordy celu/wyjścia i wrzuca do zmiennej
 bool isWall(int x, int y);  // czy na podanych kordach nie ma spacji
 char drawOnBufor(int x, int y, char c); // narysuj na x i y znak c i zwróć poprzednie co tam było
