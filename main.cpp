@@ -7,9 +7,10 @@
 
 using namespace std;
 
+//struktury
+typedef struct{int x; int y;} COORDS;
+
 // zmienne globalne
-int coordx, coordy;
-int endcoordx, endcoordy;
 string mapy="maps"; //folder, w którym są mapy
 string file_name;   //ścieżka do mapy
 string prev_file;   //nazwa poprzedniej mapy
@@ -46,9 +47,26 @@ while (getline(file, line))
 file.close();
 }
 
+COORDS player_coords;
+COORDS end_coords;
 
-
-void targetcoords(); // bierze koordy celu/wyjścia i wrzuca do zmiennej
+bool isExist(COORDS p) { // sprawdza czy dane pole jest na mapie
+  if(p.y>=SIZE)return false;
+  return mapa[p.y].size()>=p.x;
+}
+COORDS randomCoords(bool notWall=true) {
+  COORDS c;
+  do {
+    c.y = rand() % SIZE;
+    size_t s = mapa[c.y].size();
+    if(s) // s != 0
+      c.x = rand() % s;
+  }while(!(isExist(c)&&((!notWall)||isWall(c))));
+  return c;
+}
+void targetcoords() { // bierze koordy celu/wyjścia i wrzuca do zmiennej
+  end_coords = randomCoords();
+}
 bool isWall(int x, int y);  // czy na podanych kordach nie ma spacji
 char getEvent()
     {
