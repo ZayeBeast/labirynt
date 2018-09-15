@@ -8,14 +8,14 @@
 using namespace std;
 
 // zmienne globalne
-string mapa[100];
-string bufor[100];
 int coordx, coordy;
 int endcoordx, endcoordy;
-char user='X';
 string mapy="maps"; //folder, w którym są mapy
 string file_name;   //ścieżka do mapy
 string prev_file;   //nazwa poprzedniej mapy
+#define SIZE 100
+string mapa[SIZE], bufor[SIZE];
+char user_ch='X', end_ch='O';
 
 // procedury
 void beginingcoords()
@@ -50,9 +50,6 @@ file.close();
 
 void targetcoords(); // bierze koordy celu/wyjścia i wrzuca do zmiennej
 bool isWall(int x, int y);  // czy na podanych kordach nie ma spacji
-char drawOnBufor(int x, int y, char c); // narysuj na x i y znak c i zwróć poprzednie co tam było
-void refreshBufor(); // stwórz bufor
-void viewBufor(); // wypisz bufor na ekran
 char getEvent()
     {
         return getch();
@@ -98,6 +95,26 @@ void doEvent(char c)
         }   
     
     }// wykonaj operację przypisaną do danego znaku (np WSAD)
+void refreshBufor() { // załaduj mapę do bufora i nanieś na nie usera i wyjście
+  for(size_t i=0; i<SIZE; ++i)
+    bufor[i] = mapa[i];
+  drawOnBufor(coordx, coordy, user_ch);
+  drawOnBufor(endcoordx, endcoordy, end_ch);
+}
+char drawOnBufor(int x, int y, char c) { // narysuj na x i y znak c i zwróć poprzednie co tam było
+  char oc = mapa[y][x];
+  mapa[y][x] = c;
+  return oc;
+}
+void viewBufor() { // wypisz bufor na ekran
+  if(system(NULL)) // sprawdzanie czy konsola dostępna
+    if(system("CLS")) // sprawdzanie czy komenda CLS zadziałała
+      if(system("clear"))
+        cout << string('\n',0xFF);
+  for(size_t i=0;i<SIZE;++i)
+    if(mapa[i].size()>0)
+      cout << mapa[i] << '\n';
+}
 bool isEnd(); // czy jesteśmy na kordach wyjścia
 class pojemnik {
     string s;
