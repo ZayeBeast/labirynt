@@ -133,6 +133,16 @@ void viewBufor() { // wypisz bufor na ekran
     if(mapa[i].size()>0)
       cout << mapa[i] << '\n';
 }
+bool isWall(int coordx, int coordy)  // czy na podanych kordach nie ma spacji
+{
+    if (mapa[coordy][coordx] == ' ') //sprawdza czy space
+        return false;                //zwraca, czy jest, czy nie
+        else return true;
+}
+char drawOnBufor(int x, int y, char c); // narysuj na x i y znak c i zwróć poprzednie co tam było
+void viewBufor(); // wypisz bufor na ekran
+char getEvent(); // pobierz znak
+void doEvent(); // wykonaj operację przypisaną do danego znaku (np WSAD)
 bool isEnd(); // czy jesteśmy na kordach wyjścia
 class pojemnik {
     string s;
@@ -273,3 +283,4 @@ int main() {
     }
     return 0;
 }
+
