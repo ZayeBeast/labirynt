@@ -48,15 +48,10 @@ string prev_file;   //nazwa poprzedniej mapy
 #define SIZE 100
 string mapa[SIZE], bufor[SIZE];
 char user_ch='X', end_ch='O';
+COORDS player_coords;
+COORDS end_coords;
 
 // procedury
-void beginingcoords()
-{   do{
-            coordx = rand() % 100 + 1;
-            coordy = rand() % 100 + 1;
-        }while (isWall(coordx, coordy));
- 
-    } // bierze poczontkowew koordy i wrzuca do zmiennej
 void getMap()
 {
 std::fstream file;
@@ -78,8 +73,12 @@ while (getline(file, line))
 file.close();
 }
 
-COORDS player_coords;
-COORDS end_coords;
+bool isWall(COORDS c)  // czy na podanych kordach nie ma spacji
+{
+    if (mapa[c.y][c.x] == ' ') //sprawdza czy space
+        return false;                //zwraca, czy jest, czy nie
+        else return true;
+}
 
 bool isExist(COORDS p) { // sprawdza czy dane pole jest na mapie
   if(p.y>=SIZE)return false;
@@ -95,65 +94,39 @@ COORDS randomCoords(bool notWall=true) {
   }while(!(isExist(c)&&((!notWall)||isWall(c))));
   return c;
 }
+void beginingcoords() { // bierze poczontkowe koordy i wrzuca do zmiennej
+  player_coords = randomCoords();
+}
 void targetcoords() { // bierze koordy celu/wyjścia i wrzuca do zmiennej
   end_coords = randomCoords();
 }
-bool isWall(int x, int y);  // czy na podanych kordach nie ma spacji
 char getEvent()
     {
         return getch();
     }// pobierz znak
-void doEvent(char c)
-    {
-        
-        c = toupper(c);
-        switch (c)
-        {
-            case'W':
-            {
-                if(isWall(coordx,coordy+1)==false)
-                {    
-                coordy++;
-                }    
-            }
-            break;
-            case'S':
-            {
-                if(isWall(coordx,coordy-1)==false)
-                {    
-                coordy--;
-                }    
-            }
-            break;
-            case 'A':
-            {
-                if(isWall(coordx-1,coordy)==false)
-                {    
-                coordx--;
-                }    
-            }
-            break;
-            case'D':
-            {
-                if(isWall(coordx+1,coordy)==false)
-                {    
-                coordx++;
-                }    
-            }
-            break;
-        }   
-    
-    }// wykonaj operację przypisaną do danego znaku (np WSAD)
+void doEvent(char c) {
+    c = toupper(c);
+    COORDS n=player_coords;
+    switch(c) {
+        case 'W': ++n.y; break;
+        case 'S': --n.y; break;
+        case 'A': --n.x; break;
+        case 'D': ++n.x; break;
+    }
+    if(!isWall(n))
+        player_coords = n;
+
+}// wykonaj operację przypisaną do danego znaku (np WSAD)
+char drawOnBufor(COORDS C, char c) { // narysuj na x i y znak c i zwróć poprzednie co tam było
+  char oc = mapa[C.y][C.x];
+  mapa[C.y][C.x] = c;
+  return oc;
+}
 void refreshBufor() { // załaduj mapę do bufora i nanieś na nie usera i wyjście
   for(size_t i=0; i<SIZE; ++i)
     bufor[i] = mapa[i];
-  drawOnBufor(coordx, coordy, user_ch);
-  drawOnBufor(endcoordx, endcoordy, end_ch);
-}
-char drawOnBufor(int x, int y, char c) { // narysuj na x i y znak c i zwróć poprzednie co tam było
-  char oc = mapa[y][x];
-  mapa[y][x] = c;
-  return oc;
+  drawOnBufor(player_coords, user_ch);
+  drawOnBufor(end_coords, end_ch);
 }
 void viewBufor() { // wypisz bufor na ekran
   if(system(NULL)) // sprawdzanie czy konsola dostępna
@@ -164,16 +137,6 @@ void viewBufor() { // wypisz bufor na ekran
     if(mapa[i].size()>0)
       cout << mapa[i] << '\n';
 }
-bool isWall(int coordx, int coordy)  // czy na podanych kordach nie ma spacji
-{
-    if (mapa[coordy][coordx] == ' ') //sprawdza czy space
-        return false;                //zwraca, czy jest, czy nie
-        else return true;
-}
-char drawOnBufor(int x, int y, char c); // narysuj na x i y znak c i zwróć poprzednie co tam było
-void viewBufor(); // wypisz bufor na ekran
-char getEvent(); // pobierz znak
-void doEvent(); // wykonaj operację przypisaną do danego znaku (np WSAD)
 bool isEnd(); // czy jesteśmy na kordach wyjścia
 class pojemnik {
     string s;
@@ -308,7 +271,7 @@ int main() {
         }
     }catch(const char * c) {
         cout << "error: " << c;
-        cin.get()
+        cin.get();
         return 033653340336; // 0xDEADC0DE
     }catch(...) {
         cout << "UNEXCEPTED ERROR\n";
