@@ -56,16 +56,15 @@ void getMap()
 {
 std::fstream file;
 file.open(file_name, ios::in);
-
 if(file.good()==false)
 {
     throw "File does not exist";
-   
+
 }
 string line;
 size_t i=0;
 while (getline(file, line))
-{        
+{
     mapa[i] = line;
     i++;
 }
@@ -137,7 +136,11 @@ void viewBufor() { // wypisz bufor na ekran
     if(mapa[i].size()>0)
       cout << mapa[i] << '\n';
 }
-bool isEnd(); // czy jesteśmy na kordach wyjścia
+bool isEnd() {// czy jesteśmy na kordach wyjścia
+    if  ((player_coords.x== end_coords.x) && (player_coords.y==end_coords.y))
+                    return true;
+                    else return false;
+                }
 class pojemnik {
     string s;
     int part(int l, int r){
