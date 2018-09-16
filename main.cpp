@@ -63,7 +63,7 @@ if(file.good()==false)
    
 }
 string line;
-i=0;
+size_t i=0;
 while (getline(file, line))
 {        
     mapa[i] = line;
