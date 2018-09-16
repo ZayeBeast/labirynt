@@ -263,15 +263,17 @@ bool doEnd(bool animation=true) {                  // wykonaj animację wygranej
 int main() {
     srand (time(NULL));
     try {
-        getMap();
-        beginingcoords();
-        targetcoords();
-        while(1) {
-            refreshBufor();
-            viewBufor();
-            doEvent(getEvent());
-            if(isEnd())
-                doEnd();
+        while(getMap()) {
+            beginingcoords();
+            targetcoords();
+            while(1) {
+                refreshBufor();
+                viewBufor();
+                doEvent(getEvent());
+                if(isEnd())
+                    break;
+            }
+            doEnd();
         }
     }catch(const char * c) {
         cout << "error: " << c;
