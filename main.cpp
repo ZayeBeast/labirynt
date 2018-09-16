@@ -257,7 +257,8 @@ bool doEnd(bool animation=true) {                  // wykonaj animację wygranej
 int main() {
     srand (time(NULL));
     try {
-        while(getMap()) {
+        while(doEnd(false)) {
+            getMap();
             beginingcoords();
             targetcoords();
             while(1) {
