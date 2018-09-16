@@ -117,7 +117,8 @@ bool doEnd(bool animation=true) {                  // wykonaj animację wygranej
 
     if(( sciezka = opendir( mapy.c_str() ) ) ) {
         while(( plik = readdir( sciezka ) ) )
-           if(string(plik->d_name).substr(string(plik->d_name).size()-3) == string(".map"))
+        if(string(plik->d_name).size()>=4)
+           if(string(plik->d_name).substr(string(plik->d_name).size()-4) == string(".map"))
                 p1.push( plik->d_name );
         closedir( sciezka );
     }
@@ -129,7 +130,7 @@ bool doEnd(bool animation=true) {                  // wykonaj animację wygranej
    index = p1.search(prev_file);
    prev_file = p1.get(index+1);
     file_name = mapy+"/"+prev_file;
-    if(index==(size_t)-1)
+    if(prev_file == string (":"))
         {
          return false;
         }
@@ -138,5 +139,13 @@ bool doEnd(bool animation=true) {                  // wykonaj animację wygranej
 
 
 int main() {
+
+    while(doEnd())
+    cout<<file_name;
+    cout<<"Zakonczylo sie wykonywanie"<<endl;
+
+
+
+
     return 69;
 }
