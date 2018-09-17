@@ -107,8 +107,8 @@ void doEvent(char c) {
     c = toupper(c);
     COORDS n=player_coords;
     switch(c) {
-        case 'W': ++n.y; break;
-        case 'S': --n.y; break;
+        case 'W': --n.y; break;
+        case 'S': ++n.y; break;
         case 'A': --n.x; break;
         case 'D': ++n.x; break;
     }
