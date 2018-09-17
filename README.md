@@ -1,46 +1,45 @@
 # Labirynt
-> Simple game.
+> Prosta gra.
 
-## Table of contents
-* [General info](#general-info)
-* [Authors](#authors)
-* [Technologies](#technologies)
-* [Setup](#setup)
-* [Features](#features)
-* [Status](#status)
-* [Contact](#contact)
+## Spis treści
+* [Informacje ogólne] (#ogólne-informacje)
+* [Autorzy] (#autorzy)
+* [Technologie] (#technologie)
+* [Setup] (#setup)
+* [Rozwój] (#rozwój)
+* [Status] (#status)
+* [Kontakt] (#kontakt)
 
-## General info
-This project is a demonstration of using git in a group.
+## Ogólne informacje
+Ten projekt jest demonstracją używania git'a w grupie.
 
-## Authors
-Labirynt is made by 5 people:
+## Autorzy
+Labirynt tworzy 5 osób:
 * Marcin Zepp
 * Igor Wysocki
 * Michał Hoffmann
 * Dawid Siekański
 * Igor Białas
 
-## Technologies
-* C++ - standard c++98.
+## Technologie
+* C ++ - standard c++98.
 
 ## Setup
-Download game from (#https://github.com/Nircek/labirynt/releases/tag/v1.0)
-and type:
+Pobierz grę z (#https://github.com/Nircek/labirynt/releases/tag/v1.0)
+i wpisz:
 
-*in Linux Debian:
-```
+* w Linux Debian:
+`` `
 $ cd ../labirynt
 $ ./a.out
-```
+`` `
 
-## Features
-List of features TODOs for future development
-* Sounds and Music
+## Rozwój
+Lista rzeczy do zrobienia w przyszłości
+* Dźwięki i muzyka
 
 ## Status
-Project is: _in progress_
+Projekt jest: _w trakcie tworzenia_
 
-## Contact
-Created by [Marcin Zepp](#m.zepp@outlook.com)
-
+## Kontakt
+[Marcin Zepp] (#m.zepp@outlook.com)
