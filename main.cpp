@@ -223,7 +223,8 @@ class pojemnik {
     }
 };
 void animate() {
-
+  cout<<"Udało Ci się rozegrac mape \'"<<prev_file<<"\'.\n\nKlijnij dowolny przycisk, zeby zagrac w kolejna...";
+  getch();
 }
 bool doEnd(bool animation=true) {                  // wykonaj animację wygranej i przerzuć do następnego pliku
 
@@ -260,7 +261,8 @@ bool doEnd(bool animation=true) {                  // wykonaj animację wygranej
 int main() {
     srand (time(NULL));
     try {
-        while(doEnd(false)) {
+        size_t i = (size_t)-1;
+        while(doEnd(++i)) {
             getMap();
             beginingcoords();
             targetcoords();
@@ -271,7 +273,6 @@ int main() {
                 if(isEnd())
                     break;
             }
-            doEnd();
         }
     }catch(const char * c) {
         cout << "error: " << c;
