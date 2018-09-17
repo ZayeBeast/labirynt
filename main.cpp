@@ -90,7 +90,7 @@ COORDS randomCoords(bool notWall=true) {
     size_t s = mapa[c.y].size();
     if(s) // s != 0
       c.x = rand() % s;
-  }while(!(isExist(c)&&((!notWall)||isWall(c))));
+  }while((!isExist(c))||(notWall&&isWall(c)));
   return c;
 }
 void beginingcoords() { // bierze poczontkowe koordy i wrzuca do zmiennej
