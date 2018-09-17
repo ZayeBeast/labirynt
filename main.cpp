@@ -55,7 +55,7 @@ COORDS end_coords;
 void getMap()
 {
 std::fstream file;
-file.open(file_name, ios::in);
+file.open(file_name.c_str(), ios::in);
 if(file.good()==false)
 {
     throw "File does not exist";
