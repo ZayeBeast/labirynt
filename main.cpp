@@ -117,8 +117,8 @@ void doEvent(char c) {
 
 }// wykonaj operację przypisaną do danego znaku (np WSAD)
 char drawOnBufor(COORDS C, char c) { // narysuj na x i y znak c i zwróć poprzednie co tam było
-  char oc = mapa[C.y][C.x];
-  mapa[C.y][C.x] = c;
+  char oc = bufor[C.y][C.x];
+  bufor[C.y][C.x] = c;
   return oc;
 }
 void refreshBufor() { // załaduj mapę do bufora i nanieś na nie usera i wyjście
@@ -133,8 +133,8 @@ void viewBufor() { // wypisz bufor na ekran
       if(system("clear"))
         cout << string('\n',0xFF);
   for(size_t i=0;i<SIZE;++i)
-    if(mapa[i].size()>0)
-      cout << mapa[i] << '\n';
+    if(bufor[i].size()>0)
+      cout << bufor[i] << '\n';
 }
 bool isEnd() {// czy jesteśmy na kordach wyjścia
     if  ((player_coords.x== end_coords.x) && (player_coords.y==end_coords.y))
