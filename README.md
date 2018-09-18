@@ -15,14 +15,14 @@ Ten projekt jest demonstracją używania git'a w grupie.
 
 ## Autorzy
 Labirynt tworzy 5 osób:
-* Marcin Zepp
-* Igor Wysocki
-* Michał Hoffmann
-* Dawid Siekański
-* Igor Białas
+* @Nircek (Marcin Zepp)
+* @MrDarkness19 (Igor Wysocki)
+* @Crackhoff (Michał Hoffmann)
+* @Gummybear45 (Dawid Siekański)
+* @IgorBia (Igor Białas)
 
 ## Technologie
-* C ++ - standard c++98.
+* C ++ - zgodność ze standardem c++98.
 
 ## Setup
 Pobierz grę z https://github.com/Nircek/labirynt/releases/tag/v1.0
@@ -42,5 +42,5 @@ Lista rzeczy do zrobienia w przyszłości
 Projekt jest: _w trakcie tworzenia_
 
 ## Kontakt
-[Marcin Zepp](mailto:m.zepp@outlook.com)
+[Nircek](mailto:m.zepp@outlook.com)
 
