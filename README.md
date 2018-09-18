@@ -29,10 +29,10 @@ Pobierz grę z https://github.com/Nircek/labirynt/releases/tag/v1.0
 i wpisz:
 
 * w Linux Debian:
-`` `
+``` bash
 $ cd ../labirynt
 $ ./a.out
-`` `
+```
 
 ## Rozwój
 Lista rzeczy do zrobienia w przyszłości
