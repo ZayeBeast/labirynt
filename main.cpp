@@ -3,6 +3,7 @@
 #include <ctime>       /* time */
 #include <dirent.h>
 #include <fstream>
+#include <cmath>
 
 // code from https://gist.github.com/Nircek
 // under MIT license
@@ -97,7 +98,16 @@ void beginingcoords() { // bierze poczontkowe koordy i wrzuca do zmiennej
   player_coords = randomCoords();
 }
 void targetcoords() { // bierze koordy celu/wyjścia i wrzuca do zmiennej
-  end_coords = randomCoords();
+ int m ,n,sm=SIZE,sn=SIZE ;
+    sm=sm/2;
+    sn=sn/2;
+    do{  
+        end_coords = randomCoords();
+        m = player_coords.x-end_coords.x;
+        n = player_coords.y-end_coords.y;
+        m=abs(m);
+        n=abs(n);
+   }while ((m<sm) || (n<sm));    
 }
 char getEvent()
     {
