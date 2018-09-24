@@ -72,6 +72,36 @@ while (getline(file, line))
 file.close();
 }
 
+// generuje mapę o podanych w parametrach wymiarach oraz zapisuje ją w zmiennej mapa
+void generateMap(size_t width=SIZE, size_t height=SIZE) {
+    /*src: https://gist.github.com/Nircek/7e1ee37e0bbc30f7ab554c633209a8d4/60b41682b6561b848b7d34ae338c9e8a9ca7ba6e#file-mazes-py-L75
+      def gen(self):
+        self.X, self.Y = m.randp()
+        self.set(self.X,self.Y,' ')
+        it = 0
+        while 1:
+          x, y = self.randp()
+          n = 0
+          ni = 0
+          for dx in [-1, 0, 1]:
+            for dy in [-1, 0, 1]:
+              if dx == 0 and dy == 0:
+                continue
+              if self.get(x+dx,y+dy) == ' ':
+                n += 1
+                if dx == 0 or dy == 0:
+                  ni += 1
+          if ni == 1 and n < 3:
+            if self.get(x,y) != ' ':
+              it = 0
+            self.set(x,y,' ')
+          else:
+            it += 1
+            if it == self.W*self.H*3:
+              break
+    */
+}
+
 bool isWall(COORDS c)  // czy na podanych kordach nie ma spacji
 {
     if (mapa[c.y][c.x] == ' ') //sprawdza czy space
