@@ -100,8 +100,14 @@ void targetcoords() { // bierze koordy celu/wyjścia i wrzuca do zmiennej
   end_coords = randomCoords();
 }
 
-char get(COORDS c);
-void set(COORDS c, char ch);
+char get(COORDS c) {
+    if(!isExist(c)) return '?';
+    return mapa[c.y][c.x];
+}
+void set(COORDS c, char ch) {
+    if(!isExist(c)) return;
+    mapa[c.x][c.y] = ch;
+}
 
 // generuje mapę o podanych w parametrach wymiarach oraz zapisuje ją w zmiennej mapa
 void generateMap(size_t width=SIZE, size_t height=SIZE) {
