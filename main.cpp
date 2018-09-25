@@ -72,6 +72,34 @@ while (getline(file, line))
 file.close();
 }
 
+bool isWall(COORDS c)  // czy na podanych kordach nie ma spacji
+{
+    if (mapa[c.y][c.x] == ' ') //sprawdza czy space
+        return false;                //zwraca, czy jest, czy nie
+        else return true;
+}
+
+bool isExist(COORDS p) { // sprawdza czy dane pole jest na mapie
+  if(p.y>=SIZE)return false;
+  return mapa[p.y].size()>=p.x;
+}
+COORDS randomCoords(bool notWall=true) {
+  COORDS c;
+  do {
+    c.y = rand() % SIZE;
+    size_t s = mapa[c.y].size();
+    if(s) // s != 0
+      c.x = rand() % s;
+  }while((!isExist(c))||(notWall&&isWall(c)));
+  return c;
+}
+void beginingcoords() { // bierze poczontkowe koordy i wrzuca do zmiennej
+  player_coords = randomCoords();
+}
+void targetcoords() { // bierze koordy celu/wyjścia i wrzuca do zmiennej
+  end_coords = randomCoords();
+}
+
 char get(COORDS c);
 void set(COORDS c, char ch);
 
@@ -108,33 +136,6 @@ void generateMap(size_t width=SIZE, size_t height=SIZE) {
   }
 }
 
-bool isWall(COORDS c)  // czy na podanych kordach nie ma spacji
-{
-    if (mapa[c.y][c.x] == ' ') //sprawdza czy space
-        return false;                //zwraca, czy jest, czy nie
-        else return true;
-}
-
-bool isExist(COORDS p) { // sprawdza czy dane pole jest na mapie
-  if(p.y>=SIZE)return false;
-  return mapa[p.y].size()>=p.x;
-}
-COORDS randomCoords(bool notWall=true) {
-  COORDS c;
-  do {
-    c.y = rand() % SIZE;
-    size_t s = mapa[c.y].size();
-    if(s) // s != 0
-      c.x = rand() % s;
-  }while((!isExist(c))||(notWall&&isWall(c)));
-  return c;
-}
-void beginingcoords() { // bierze poczontkowe koordy i wrzuca do zmiennej
-  player_coords = randomCoords();
-}
-void targetcoords() { // bierze koordy celu/wyjścia i wrzuca do zmiennej
-  end_coords = randomCoords();
-}
 char getEvent()
     {
         return getch();
