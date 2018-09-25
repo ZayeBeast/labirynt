@@ -124,7 +124,8 @@ void generateMap(size_t width=SIZE, size_t height=SIZE) {
       for(int dy=-1;dy<=1;++dy) {
         if(dx==0&&dy==0)
           continue;
-        if(get({c.x+dx,c.y+dy}) == ' ') {
+        COORDS g = {c.x+dx,c.y+dy};
+        if(get(g) == ' ') {
           ++n;
           if(dx==0||dy==0)
             ++ni;
