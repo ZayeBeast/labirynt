@@ -106,18 +106,19 @@ char get(COORDS c) {
 }
 void set(COORDS c, char ch) {
     if(!isExist(c)) return;
-    mapa[c.x][c.y] = ch;
+    mapa[c.y][c.x] = ch;
 }
 
 // generuje mapę o podanych w parametrach wymiarach oraz zapisuje ją w zmiennej mapa
 void generateMap(size_t width=SIZE, size_t height=SIZE) {
   //src: https://gist.github.com/Nircek/7e1ee37e0bbc30f7ab554c633209a8d4/60b41682b6561b848b7d34ae338c9e8a9ca7ba6e#file-mazes-py-L75
-  //TODO: generowanie pełnej mapy o wymiarach
-  COORDS c = randomCoords();
+  for(int i=0;i<height;++i)
+    mapa[i]=string(width, '#');
+  COORDS c = randomCoords(false);
   set(c,' ');
   int it = 0;
   while(1) {
-    c = randomCoords();
+    c = randomCoords(false);
     int n = 0;
     int ni = 0;
     for(int dx=-1;dx<=1;++dx)
@@ -175,7 +176,7 @@ void viewBufor() { // wypisz bufor na ekran
   if(system(NULL)) // sprawdzanie czy konsola dostępna
     if(system("CLS")) // sprawdzanie czy komenda CLS zadziałała
       if(system("clear"))
-        cout << string('\n',0xFF);
+        cout << string(0xFF, '\n');
   for(size_t i=0;i<SIZE;++i)
     if(bufor[i].size()>0)
       cout << bufor[i] << '\n';
@@ -306,8 +307,8 @@ int main() {
     srand (time(NULL));
     try {
         size_t i = (size_t)-1;
-        while(doEnd(++i)) {
-            generateMap();
+        //while(doEnd(++i)) {
+            generateMap(25,25);
             beginingcoords();
             targetcoords();
             while(1) {
@@ -317,7 +318,7 @@ int main() {
                 if(isEnd())
                     break;
             }
-        }
+        //}
     }catch(const char * c) {
         cout << "error: " << c;
         cin.get();
