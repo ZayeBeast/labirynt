@@ -105,6 +105,7 @@ char getEvent()
     }// pobierz znak
 void doEvent(char c) {
     c = toupper(c);
+    unsigned char strzalka =c;
     COORDS n=player_coords;
     switch(c) {
         case 'W': --n.y; break;
@@ -112,6 +113,16 @@ void doEvent(char c) {
         case 'A': --n.x; break;
         case 'D': ++n.x; break;
     }
+    switch( strzalka ){
+        case 0: //klawisze specjalne (czasem zero czasem 224 - zale¿ne od pc'ta chyba)
+        case 224: //klawisze specjalne
+        strzalka = getch();
+        switch( strzalka ){
+        case 72: --n.y; break;
+        case 80: ++n.y; break;
+        case 75:--n.x; break;
+        case 77:++n.x; break;
+        }}
     if(!isWall(n))
         player_coords = n;
 
