@@ -272,6 +272,14 @@ bool doEnd(bool animation=true) {                  // wykonaj animację wygranej
 int main() {
     srand (time(NULL));
     try {
+        //debug:
+        cout << "type \'c\' to break\n";
+        char c;
+        while(1) {
+          c=getch();
+          if(c=='c')break;
+          cout<<(unsigned int)c<<' ';
+        }
         size_t i = (size_t)-1;
         while(doEnd(++i)) {
             getMap();
