@@ -302,23 +302,35 @@ bool doEnd(bool animation=true) {                  // wykonaj animację wygranej
     return true;
 }
 
+void loop() {
+    beginingcoords();
+    targetcoords();
+    while(1) {
+        refreshBufor();
+        viewBufor();
+        doEvent(getEvent());
+        if(isEnd())
+            break;
+    }
+}
 
 int main() {
     srand (time(NULL));
+    int c;
+    cout << "Wpisz rozmiar generowanej planszy lub 0, zeby pobrac plansze z pliku: ";
+    cin >> c;
+    cout << "Pobrano " << c << '\n';
     try {
-        size_t i = (size_t)-1;
-        //while(doEnd(++i)) {
-            generateMap(25,25);
-            beginingcoords();
-            targetcoords();
-            while(1) {
-                refreshBufor();
-                viewBufor();
-                doEvent(getEvent());
-                if(isEnd())
-                    break;
+        if(c) {
+            generateMap(c,c);
+            loop();
+        } else {
+            size_t i = (size_t)-1;
+            while(doEnd(++i)) {
+                getMap();
+                loop();
             }
-        //}
+        }
     }catch(const char * c) {
         cout << "error: " << c;
         cin.get();
