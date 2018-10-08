@@ -319,15 +319,22 @@ int main() {
     cout<<"----------MENU----------"                   <<endl;
     cout<<"| Wybierz:             |"                   <<endl;
     cout<<"| 1. - Rozpocznij gre  |"                   <<endl;
-    cout<<"| 2. - Wyswietl Tworcow|"                   <<endl;
+    cout<<"| 2. - Losowa mapa     |"                   <<endl;
+    cout<<"| 3. - Wyswietl Tworcow|"                   <<endl;
     cout<<"------------------------"                   <<endl;
     int wybor;
     cout<<"Wybieram: ";
     cin>>wybor;
+    if(wybor==2)
+    {
+        size_t cordy1, cordy2;
+        cout<<"Wybierz rozmiar mapy: "<<endl;
+        cout<<"Koordynaty x: ";cin>>cordy1;
+        cout<<"Koordynaty y: ";cin>>cordy2;
+        generateMap(cordy1,cordy2);
+    }
     if(wybor==1)
     {
-
-
     srand (time(NULL));
     int c;
     cout << "Wpisz rozmiar generowanej planszy lub 0, zeby pobrac plansze z pliku: ";
@@ -354,7 +361,7 @@ int main() {
         return 033653340336; // 0xDEADC0DE
     }
     }
-    if(wybor==2)
+    if(wybor==3)
     {
         cout<<"MrccZnepva aka Nircek"<<endl;
         cout<<"MrDarkness19"         <<endl;
