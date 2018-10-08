@@ -3,6 +3,7 @@
 #include <ctime>       /* time */
 #include <dirent.h>
 #include <fstream>
+#include <vector>
 
 // code from https://gist.github.com/Nircek
 // under MIT license
@@ -45,8 +46,9 @@ typedef struct{int x; int y;} COORDS;
 string mapy="maps"; //folder, w którym są mapy
 string file_name;   //ścieżka do mapy
 string prev_file;   //nazwa poprzedniej mapy
-#define SIZE 100
-string mapa[SIZE], bufor[SIZE];
+size_t SIZE=0;
+string *bufor = NULL;
+vector<string> mapa;
 char user_ch='X', end_ch='O';
 COORDS player_coords;
 COORDS end_coords;
@@ -61,27 +63,28 @@ if(file.good()==false)
     throw "File does not exist";
 
 }
+mapa.clear();
+SIZE = 0;
 string line;
-size_t i=0;
-while (getline(file, line))
-{
-    mapa[i] = line;
-    i++;
+while (getline(file, line)) {
+    mapa.push_back(line);
+    ++SIZE;
 }
 
 file.close();
 }
 
-bool isWall(COORDS c)  // czy na podanych kordach nie ma spacji
-{
-    if (mapa[c.y][c.x] == ' ') //sprawdza czy space
-        return false;                //zwraca, czy jest, czy nie
-        else return true;
-}
-
 bool isExist(COORDS p) { // sprawdza czy dane pole jest na mapie
   if(p.y>=SIZE)return false;
   return mapa[p.y].size()>=p.x;
+}
+
+bool isWall(COORDS c)  // czy na podanych kordach nie ma spacji
+{
+    if(!isExist(c))return true;
+    if (mapa[c.y][c.x] == ' ') //sprawdza czy space
+        return false;                //zwraca, czy jest, czy nie
+        else return true;
 }
 COORDS randomCoords(bool notWall=true) {
   COORDS c;
@@ -167,6 +170,8 @@ char drawOnBufor(COORDS C, char c) { // narysuj na x i y znak c i zwróć poprze
   return oc;
 }
 void refreshBufor() { // załaduj mapę do bufora i nanieś na nie usera i wyjście
+  if(!bufor) delete[] bufor;
+  bufor = new string[SIZE];
   for(size_t i=0; i<SIZE; ++i)
     bufor[i] = mapa[i];
   drawOnBufor(player_coords, user_ch);
