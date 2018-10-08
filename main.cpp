@@ -338,7 +338,7 @@ int main() {
         cout<<"Koordynaty y: ";cin>>cordy2;
         generateMap(cordy1,cordy2);
     }
-    if(wybor==1)
+    else if(wybor==1)
     {
     srand (time(NULL));
     int c;
@@ -355,7 +355,7 @@ int main() {
                 getMap();
                 loop();
             }
-        }
+        }yyy
     }catch(const char * c) {
         cout << "error: " << c;
         cin.get();
@@ -366,7 +366,7 @@ int main() {
         return 033653340336; // 0xDEADC0DE
     }
     }
-    if(wybor==3)
+    else if(wybor==3)
     {
         cout<<"MrccZnepva aka Nircek"<<endl;
         cout<<"MrDarkness19"         <<endl;
