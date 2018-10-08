@@ -3,7 +3,7 @@
 #include <ctime>       /* time */
 #include <dirent.h>
 #include <fstream>
-
+#include <cmath>
 // code from https://gist.github.com/Nircek
 // under MIT license
 #include <iostream>
@@ -97,9 +97,16 @@ void beginingcoords() { // bierze poczontkowe koordy i wrzuca do zmiennej
   player_coords = randomCoords();
 }
 void targetcoords() { // bierze koordy celu/wyjścia i wrzuca do zmiennej
-  end_coords = randomCoords();
-}
+   int rozmiar ,rzmr,sm=SIZE,sn=SIZE ;
+    do{
+        end_coords = randomCoords();
+        rozmiar = sqrt(2*pow(mapa[0].size(),2))/2;
+        rzmr = sqrt(pow(player_coords.x-end_coords.x,2)+pow(player_coords.y-end_coords.y,2));
+        cout << rzmr << " "<< rozmiar << endl;
+    }while (rzmr<rozmiar);
+        }
 char getEvent()
+
     {
         return getch();
     }// pobierz znak
