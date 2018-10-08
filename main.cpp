@@ -320,6 +320,7 @@ void loop() {
 }
 
 int main() {
+    try {
     cout<<"Witaj w naszej amatorskiej grze 'Labirynt'."<<endl<<endl<<endl;
     cout<<"----------MENU----------"                   <<endl;
     cout<<"| Wybierz:             |"                   <<endl;
@@ -341,31 +342,16 @@ int main() {
     else if(wybor==1)
     {
     srand (time(NULL));
-    int c;
-    cout << "Wpisz 0 aby pobrac mape";
-    cin >> c;
-    cout << "Pobrano " << c << '\n';
-    try {
-        if(c) {
-            generateMap(c,c);
-            loop();
-        } else {
+
+
+
             size_t i = (size_t)-1;
             while(doEnd(++i)) {
                 getMap();
                 loop();
             }
-        }
-    }catch(const char * c) {
-        cout << "error: " << c;
-        cin.get();
-        return 033653340336; // 0xDEADC0DE
-    }catch(...) {
-        cout << "UNEXCEPTED ERROR\n";
-        cin.get();
-        return 033653340336; // 0xDEADC0DE
-    }
-    }
+
+
     else if(wybor==3)
     {
         cout<<"MrccZnepva aka Nircek"<<endl;
@@ -379,5 +365,15 @@ int main() {
         return 0;
     }
     return 0;
+        }catch(const char * c) {
+        cout << "error: " << c;
+        cin.get();
+        return 033653340336; // 0xDEADC0DE
+    }catch(...) {
+        cout << "UNEXCEPTED ERROR\n";
+        cin.get();
+        return 033653340336; // 0xDEADC0DE
+    }
+    }
 }
 
