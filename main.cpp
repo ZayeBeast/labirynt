@@ -323,7 +323,7 @@ int main() {
     cout<<"Witaj w naszej amatorskiej grze 'Labirynt'."<<endl<<endl<<endl;
     cout<<"----------MENU----------"                   <<endl;
     cout<<"| Wybierz:             |"                   <<endl;
-    cout<<"| 1. - Rozpocznij gre  |"                   <<endl;
+    cout<<"| 1. - Kampania        |"                   <<endl;
     cout<<"| 2. - Losowa mapa     |"                   <<endl;
     cout<<"| 3. - Wyswietl Tworcow|"                   <<endl;
     cout<<"------------------------"                   <<endl;
@@ -342,7 +342,7 @@ int main() {
     {
     srand (time(NULL));
     int c;
-    cout << "Wpisz rozmiar generowanej planszy lub 0, zeby pobrac plansze z pliku: ";
+    cout << "Wpisz 0 aby pobrac mape";
     cin >> c;
     cout << "Pobrano " << c << '\n';
     try {
