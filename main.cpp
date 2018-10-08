@@ -355,7 +355,7 @@ int main() {
                 getMap();
                 loop();
             }
-        }yyy
+        }
     }catch(const char * c) {
         cout << "error: " << c;
         cin.get();
