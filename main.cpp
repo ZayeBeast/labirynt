@@ -259,6 +259,19 @@ bool doEnd(bool animation=true) {                  // wykonaj animację wygranej
 
 
 int main() {
+    cout<<"Witaj w naszej amatorskiej grze 'Labirynt'."<<endl<<endl<<endl;
+    cout<<"----------MENU----------"                   <<endl;
+    cout<<"| Wybierz:             |"                   <<endl;
+    cout<<"| 1. - Rozpocznij gre  |"                   <<endl;
+    cout<<"| 2. - Wyswietl Tworcow|"                   <<endl;
+    cout<<"------------------------"                   <<endl;
+    int wybor;
+    cout<<"Wybieram: ";
+    cin>>wybor;
+    if(wybor==1)
+    {
+
+
     srand (time(NULL));
     try {
         size_t i = (size_t)-1;
@@ -282,6 +295,19 @@ int main() {
         cout << "UNEXCEPTED ERROR\n";
         cin.get();
         return 033653340336; // 0xDEADC0DE
+    }
+    }
+    if(wybor==2)
+    {
+        cout<<"MrccZnepva aka Nircek"<<endl;
+        cout<<"MrDarkness19"         <<endl;
+        cout<<"GummyBear"            <<endl;
+        cout<<"Bialas"               <<endl;
+    }
+    else
+    {
+        cout<<"Error";
+        return 0;
     }
     return 0;
 }
