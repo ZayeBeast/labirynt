@@ -328,7 +328,7 @@ int main() {
     cout<<"| 2. - Losowa mapa     |"                   <<endl;
     cout<<"| 3. - Wyswietl Tworcow|"                   <<endl;
     cout<<"------------------------"                   <<endl;
-    int wybor;
+    size_t wybor;
     cout<<"Wybieram: ";
     cin>>wybor;
     if(wybor==2)
@@ -351,7 +351,7 @@ int main() {
                 loop();
             }
 
-
+    }
     else if(wybor==3)
     {
         cout<<"MrccZnepva aka Nircek"<<endl;
@@ -374,6 +374,6 @@ int main() {
         cin.get();
         return 033653340336; // 0xDEADC0DE
     }
-    }
+
 }
 
