@@ -115,8 +115,9 @@ void set(COORDS c, char ch) {
 // generuje mapę o podanych w parametrach wymiarach oraz zapisuje ją w zmiennej mapa
 void generateMap(size_t width=SIZE, size_t height=SIZE) {
   //src: https://gist.github.com/Nircek/7e1ee37e0bbc30f7ab554c633209a8d4/60b41682b6561b848b7d34ae338c9e8a9ca7ba6e#file-mazes-py-L75
+  SIZE = height;
   for(int i=0;i<height;++i)
-    mapa[i]=string(width, '#');
+    mapa.push_back(string(width, '#'));
   COORDS c = randomCoords(false);
   set(c,' ');
   int it = 0;
