@@ -277,6 +277,7 @@ int main() {
     g_color_mode=ANSI;
     cout<<isModeAvailable(WIN)<<isModeAvailable(ANSI)<<endl;
     setColor(RED, FG);
+    cout<<"test\n";
     getch();
     srand (time(NULL));
     try {
