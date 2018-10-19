@@ -3,7 +3,9 @@
 #include <ctime>       /* time */
 #include <dirent.h>
 #include <fstream>
+#include <cmath>
 #include <vector>
+
 
 // code from https://gist.github.com/Nircek
 // under MIT license
@@ -100,7 +102,13 @@ void beginingcoords() { // bierze poczontkowe koordy i wrzuca do zmiennej
   player_coords = randomCoords();
 }
 void targetcoords() { // bierze koordy celu/wyjścia i wrzuca do zmiennej
-  end_coords = randomCoords();
+   int rozmiar ,rzmr,sm=SIZE,sn=SIZE ;
+    do{
+        end_coords = randomCoords();
+        rozmiar = sqrt(2*pow(mapa[0].size(),2))/2;
+        rzmr = sqrt(pow(player_coords.x-end_coords.x,2)+pow(player_coords.y-end_coords.y,2));
+        cout << rzmr << " "<< rozmiar << endl;
+    }while (rzmr<rozmiar);
 }
 
 char get(COORDS c) {
@@ -115,8 +123,9 @@ void set(COORDS c, char ch) {
 // generuje mapę o podanych w parametrach wymiarach oraz zapisuje ją w zmiennej mapa
 void generateMap(size_t width=SIZE, size_t height=SIZE) {
   //src: https://gist.github.com/Nircek/7e1ee37e0bbc30f7ab554c633209a8d4/60b41682b6561b848b7d34ae338c9e8a9ca7ba6e#file-mazes-py-L75
+  SIZE = height;
   for(int i=0;i<height;++i)
-    mapa[i]=string(width, '#');
+    mapa.push_back(string(width, '#'));
   COORDS c = randomCoords(false);
   set(c,' ');
   int it = 0;
@@ -148,6 +157,7 @@ void generateMap(size_t width=SIZE, size_t height=SIZE) {
 }
 
 char getEvent()
+
     {
         return getch();
     }// pobierz znak
