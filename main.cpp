@@ -147,9 +147,17 @@ void viewBufor() { // wypisz bufor na ekran
     if(system("CLS")) // sprawdzanie czy komenda CLS zadziałała
       if(system("clear"))
         cout << string('\n',0xFF);
-  for(size_t i=0;i<SIZE;++i)
-    if(bufor[i].size()>0)
-      cout << bufor[i] << '\n';
+  for(size_t i=0;i<SIZE;++i) {
+    for(size_t j=0;j<bufor[i].size();++j) {
+      if(player_coords.x==j&&player_coords.y==i)
+        setColor(RED, BG);
+      if(end_coords.x==j&&end_coords.y==i)
+        setColor(GREEN, BG);
+      cout << bufor[i][j];
+      setColor(BLACK, BG);
+    }
+  cout << '\n';
+  }
 }
 bool isEnd() {// czy jesteśmy na kordach wyjścia
     if  ((player_coords.x== end_coords.x) && (player_coords.y==end_coords.y))
