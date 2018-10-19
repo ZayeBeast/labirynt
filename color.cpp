@@ -53,7 +53,7 @@ void setColor(color c, surface s) {
                 case BCYAN:     b=true; case CYAN:     cc='6'; break;
                 case BWHITE:    b=true; case WHITE:    cc='7'; break;
             }
-            switch(bs&(b<<1)) {
+            switch((!bs)|(b<<1)) {
                 case 0b00: cs="3";  break;
                 case 0b01: cs="4";  break;
                 case 0b10: cs="9";  break;
