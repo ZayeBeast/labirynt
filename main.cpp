@@ -5,6 +5,7 @@
 #include <fstream>
 #include <cmath>
 #include <vector>
+#include "color.h"
 
 
 // code from https://gist.github.com/Nircek
@@ -273,6 +274,8 @@ bool doEnd(bool animation=true) {                  // wykonaj animację wygranej
 
 
 int main() {
+    color_mode=ANSI;
+    setColor(RED, FG);
     srand (time(NULL));
     try {
         size_t i = (size_t)-1;
