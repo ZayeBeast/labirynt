@@ -272,9 +272,9 @@ bool doEnd(bool animation=true) {                  // wykonaj animację wygranej
     return true;
 }
 
-
+extern color_mode g_color_mode;
 int main() {
-    color_mode=ANSI;
+    g_color_mode=ANSI;
     setColor(RED, FG);
     srand (time(NULL));
     try {
