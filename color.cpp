@@ -35,14 +35,14 @@ bool isModeAvailable(color_mode cm) {
     }
 }
 void setColor(color c, surface s) {
+    bool b=false, bs=(s==FG);
+    char cc;
+    string cs;
     switch(g_color_mode) {
         case NO:
             return;
             break;
         case ANSI:
-            bool b=false, bs=(s==FG);
-            char cc;
-            string cs;
             switch(c) {
                 case BBLACK:    b=true; case BLACK:    cc='0'; break;
                 case BRED:      b=true; case RED:      cc='1'; break;
@@ -60,6 +60,34 @@ void setColor(color c, surface s) {
                 case 0b11: cs="10"; break;
             }
             cout<<"\33["<<cs<<cc<<'m';
+            break;
+        case WIN:
+            #ifdef _WIN32
+            WORD a;
+            CONSOLE_SCREEN_BUFFER_INFO info;
+            if (!GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &info))
+                a = 0;
+            else
+                a = info.wAttributes;
+            const WORD allFG = FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED;
+            const WORD allBG = BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_INTENSITY | BACKGROUND_RED;
+            a &= bs?(~allFG):(~allBG);
+            short i=bs?FOREGROUND_INTENSITY:BACKGROUND_INTENSITY,
+            r=bs?FOREGROUND_RED:BACKGROUND_RED,
+            g=bs?FOREGROUND_GREEN:BACKGROUND_GREEN,
+            b=bs?FOREGROUND_BLUE:BACKGROUND_BLUE;
+            switch(c) {
+                case BBLACK:   a|=i; case BLACK:   a|=0;    break;
+                case BRED:     a|=i; case RED:     a|=r;    break;
+                case BGREEN:   a|=i; case GREEN:   a|=g;    break;
+                case BYELLOW:  a|=i; case YELLOW:  a|=r|g;  break;
+                case BBLUE:    a|=i; case BLUE:    a|=b;    break;
+                case BMAGENTA: a|=i; case MAGENTA: a|=r|b;  break;
+                case BCYAN:    a|=i; case CYAN:    a|=g|b;  break;
+                case BWHITE:   a|=i; case WHITE:   a|=r|g|b;break;
+            }
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), a);
+            #endif
             break;
     }
 }

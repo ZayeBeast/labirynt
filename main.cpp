@@ -274,8 +274,9 @@ bool doEnd(bool animation=true) {                  // wykonaj animację wygranej
 
 extern color_mode g_color_mode;
 int main() {
-    g_color_mode=ANSI;
-    cout<<isModeAvailable(WIN)<<isModeAvailable(ANSI)<<endl;
+    if(isModeAvailable(ANSI))g_color_mode=ANSI;
+    else if(isModeAvailable(WIN))g_color_mode=WIN;
+    else g_color_mode=NO;
     setColor(RED, FG);
     cout<<"test\n";
     getch();
