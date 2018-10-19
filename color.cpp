@@ -14,7 +14,7 @@ bool testansi() {
         char c;//TODO: getch();
         cin>>c;
         if(c=='t'||c=='T')return true;
-        if(c=='n'||c=='N')return true;
+        if(c=='n'||c=='N')return false;
     }
 }
 bool isModeAvailable(color_mode cm) {
