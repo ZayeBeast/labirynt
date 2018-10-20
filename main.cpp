@@ -356,6 +356,7 @@ int main() {
         cout<<"Koordynaty x: ";cin>>cordy1;
         cout<<"Koordynaty y: ";cin>>cordy2;
         generateMap(cordy1,cordy2);
+        loop();
     }
     else if(wybor==1)
     {
