@@ -320,7 +320,12 @@ void loop() {
 }
 
 int main() {
+    size_t wybor;
+
     try {
+        do{
+            system("cls");
+
     cout<<"Witaj w naszej amatorskiej grze 'Labirynt'."<<endl<<endl<<endl;
     cout<<"----------MENU----------"                   <<endl;
     cout<<"| Wybierz:             |"                   <<endl;
@@ -328,7 +333,7 @@ int main() {
     cout<<"| 2. - Losowa mapa     |"                   <<endl;
     cout<<"| 3. - Wyswietl Tworcow|"                   <<endl;
     cout<<"------------------------"                   <<endl;
-    size_t wybor;
+
     cout<<"Wybieram: ";
     cin>>wybor;
     if(wybor==2)
@@ -359,11 +364,14 @@ int main() {
         cout<<"GummyBear"            <<endl;
         cout<<"Bialas"               <<endl;
     }
+
     else
     {
-        cout<<"Error";
-        return 0;
+        cout<<"Error"<<endl;
+        getch();
     }
+
+    }while(wybor!=1&&wybor!=2&&wybor!=3);
     return 0;
         }catch(const char * c) {
         cout << "error: " << c;
@@ -376,4 +384,3 @@ int main() {
     }
 
 }
-
