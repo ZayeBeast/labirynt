@@ -36,6 +36,8 @@
 		<Unit filename="getch.h" />
 		<Unit filename="labirynt.cpp" />
 		<Unit filename="labirynt.h" />
+		<Unit filename="color.cpp" />
+		<Unit filename="color.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="pojemnik.cpp" />
 		<Unit filename="pojemnik.h" />

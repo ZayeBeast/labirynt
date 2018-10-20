@@ -8,6 +8,7 @@
 #include <cmath>
 #include <vector>
 #include "getch.h"
+#include "color.h"
 
 using namespace std;
 

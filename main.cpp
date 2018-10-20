@@ -4,7 +4,12 @@
 #include "getch.h"
 #include "labirynt.h"
 
+
+extern color_mode g_color_mode;
 int main() {
+    if(isModeAvailable(WIN))g_color_mode=WIN;
+    else if(isModeAvailable(ANSI))g_color_mode=ANSI;
+    else g_color_mode=NO;
     srand (time(NULL));
     int c;
     cout << "Wpisz rozmiar generowanej planszy lub 0, zeby pobrac plansze z pliku: ";
