@@ -187,11 +187,14 @@ void refreshBufor() { // załaduj mapę do bufora i nanieś na nie usera i wyjś
   drawOnBufor(player_coords, user_ch);
   drawOnBufor(end_coords, end_ch);
 }
-void viewBufor() { // wypisz bufor na ekran
+void clear_screen() {
   if(system(NULL)) // sprawdzanie czy konsola dostępna
     if(system("CLS")) // sprawdzanie czy komenda CLS zadziałała
       if(system("clear"))
         cout << string(0xFF, '\n');
+}
+void viewBufor() { // wypisz bufor na ekran
+  clear_screen();
   for(size_t i=0;i<SIZE;++i)
     if(bufor[i].size()>0)
       cout << bufor[i] << '\n';
@@ -334,7 +337,7 @@ int main() {
 
     try {
         do{
-            system("cls");
+            clear_screen();
 
     cout<<"Witaj w naszej amatorskiej grze 'Labirynt'."<<endl<<endl<<endl;
     cout<<"----------MENU----------"                   <<endl;
@@ -377,7 +380,7 @@ int main() {
 
     else
     {
-        cout<<"Error"<<endl;
+        cout<<"Nie znaleziono takiej opcji..."<<endl;
         getch();
     }
 
