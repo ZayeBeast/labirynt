@@ -49,7 +49,6 @@ char getch(){
     old.c_lflag|=ECHO;
     if(tcsetattr(0, TCSADRAIN, &old)<0)
         throw "tcsetattr ~ICANON";
-    std::cout<<buf;
     return buf;
  }
 #endif
