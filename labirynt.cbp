@@ -32,7 +32,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="getch.cpp" />
+		<Unit filename="getch.h" />
+		<Unit filename="labirynt.cpp" />
+		<Unit filename="labirynt.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="pojemnik.cpp" />
+		<Unit filename="pojemnik.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

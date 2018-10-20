@@ -26,9 +26,7 @@ SOFTWARE.
 // code from https://gist.github.com/Nircek/c8b104456e6c68068866425072a0863f
 // under MIT license
 #include <iostream>
-#ifdef _WIN32
-#include <conio.h>
-#else
+#ifndef _WIN32
 #include <unistd.h>
 #include <termios.h>
 char getch(){
