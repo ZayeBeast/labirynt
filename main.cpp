@@ -1,10 +1,6 @@
 #include <iostream>
 #include <cstdlib>     /* srand, rand */
 #include <ctime>       /* time */
-#include <dirent.h>
-#include <fstream>
-#include <cmath>
-#include <vector>
 #include "getch.h"
 #include "labirynt.h"
 
