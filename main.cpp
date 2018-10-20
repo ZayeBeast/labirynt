@@ -110,7 +110,53 @@ void targetcoords() { // bierze koordy celu/wyjścia i wrzuca do zmiennej
         rzmr = sqrt(pow(player_coords.x-end_coords.x,2)+pow(player_coords.y-end_coords.y,2));
         cout << rzmr << " "<< rozmiar << endl;
     }while (rzmr<rozmiar);
+}
+
+char get(COORDS c) {
+    if(!isExist(c)) return '?';
+    return mapa[c.y][c.x];
+}
+void set(COORDS c, char ch) {
+    if(!isExist(c)) return;
+    mapa[c.y][c.x] = ch;
+}
+
+// generuje mapę o podanych w parametrach wymiarach oraz zapisuje ją w zmiennej mapa
+void generateMap(size_t width=SIZE, size_t height=SIZE) {
+  //src: https://gist.github.com/Nircek/7e1ee37e0bbc30f7ab554c633209a8d4/60b41682b6561b848b7d34ae338c9e8a9ca7ba6e#file-mazes-py-L75
+  SIZE = height;
+  for(int i=0;i<height;++i)
+    mapa.push_back(string(width, '#'));
+  COORDS c = randomCoords(false);
+  set(c,' ');
+  int it = 0;
+  while(1) {
+    c = randomCoords(false);
+    int n = 0;
+    int ni = 0;
+    for(int dx=-1;dx<=1;++dx)
+      for(int dy=-1;dy<=1;++dy) {
+        if(dx==0&&dy==0)
+          continue;
+        COORDS g = {c.x+dx,c.y+dy};
+        if(get(g) == ' ') {
+          ++n;
+          if(dx==0||dy==0)
+            ++ni;
         }
+      }
+    if(ni==1&&n<3) {
+      if(get(c)!=' ')
+        it=0;
+      set(c,' ');
+    } else {
+      ++it;
+      if(it>width*height*3)
+        break;
+    }
+  }
+}
+
 char getEvent()
 
     {
@@ -146,7 +192,7 @@ void viewBufor() { // wypisz bufor na ekran
   if(system(NULL)) // sprawdzanie czy konsola dostępna
     if(system("CLS")) // sprawdzanie czy komenda CLS zadziałała
       if(system("clear"))
-        cout << string('\n',0xFF);
+        cout << string(0xFF, '\n');
   for(size_t i=0;i<SIZE;++i) {
     for(size_t j=0;j<bufor[i].size();++j) {
       if(player_coords.x==j&&player_coords.y==i)
@@ -280,24 +326,37 @@ bool doEnd(bool animation=true) {                  // wykonaj animację wygranej
     return true;
 }
 
+void loop() {
+    beginingcoords();
+    targetcoords();
+    while(1) {
+        refreshBufor();
+        viewBufor();
+        doEvent(getEvent());
+        if(isEnd())
+            break;
+    }
+}
+
 extern color_mode g_color_mode;
 int main() {
     if(isModeAvailable(WIN))g_color_mode=WIN;
     else if(isModeAvailable(ANSI))g_color_mode=ANSI;
     else g_color_mode=NO;
     srand (time(NULL));
+    int c;
+    cout << "Wpisz rozmiar generowanej planszy lub 0, zeby pobrac plansze z pliku: ";
+    cin >> c;
+    cout << "Pobrano " << c << '\n';
     try {
-        size_t i = (size_t)-1;
-        while(doEnd(++i)) {
-            getMap();
-            beginingcoords();
-            targetcoords();
-            while(1) {
-                refreshBufor();
-                viewBufor();
-                doEvent(getEvent());
-                if(isEnd())
-                    break;
+        if(c) {
+            generateMap(c,c);
+            loop();
+        } else {
+            size_t i = (size_t)-1;
+            while(doEnd(++i)) {
+                getMap();
+                loop();
             }
         }
     }catch(const char * c) {
