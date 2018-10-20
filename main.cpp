@@ -336,6 +336,7 @@ int main() {
     size_t wybor;
 
     try {
+    srand (time(NULL));
         do{
             clear_screen();
 
@@ -360,7 +361,6 @@ int main() {
     }
     else if(wybor==1)
     {
-    srand (time(NULL));
 
 
 
