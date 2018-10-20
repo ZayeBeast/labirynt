@@ -28,4 +28,5 @@ enum color {BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, BBLACK, BRED,
 enum surface {FG, BG};
 bool isModeAvailable(color_mode);
 void setColor(color, surface);
+extern color_mode g_color_mode;
 #endif

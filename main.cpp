@@ -4,8 +4,6 @@
 #include "getch.h"
 #include "labirynt.h"
 
-
-extern color_mode g_color_mode;
 int main() {
     if(isModeAvailable(WIN))g_color_mode=WIN;
     else if(isModeAvailable(ANSI))g_color_mode=ANSI;
