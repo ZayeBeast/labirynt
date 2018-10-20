@@ -5,6 +5,7 @@
 #include <fstream>
 #include <cmath>
 #include <vector>
+#include "color.h"
 
 
 // code from https://gist.github.com/Nircek
@@ -192,9 +193,17 @@ void viewBufor() { // wypisz bufor na ekran
     if(system("CLS")) // sprawdzanie czy komenda CLS zadziałała
       if(system("clear"))
         cout << string(0xFF, '\n');
-  for(size_t i=0;i<SIZE;++i)
-    if(bufor[i].size()>0)
-      cout << bufor[i] << '\n';
+  for(size_t i=0;i<SIZE;++i) {
+    for(size_t j=0;j<bufor[i].size();++j) {
+      if(player_coords.x==j&&player_coords.y==i)
+        setColor(RED, BG);
+      if(end_coords.x==j&&end_coords.y==i)
+        setColor(GREEN, BG);
+      cout << bufor[i][j];
+      setColor(BLACK, BG);
+    }
+  cout << '\n';
+  }
 }
 bool isEnd() {// czy jesteśmy na kordach wyjścia
     if  ((player_coords.x== end_coords.x) && (player_coords.y==end_coords.y))
@@ -329,7 +338,11 @@ void loop() {
     }
 }
 
+extern color_mode g_color_mode;
 int main() {
+    if(isModeAvailable(WIN))g_color_mode=WIN;
+    else if(isModeAvailable(ANSI))g_color_mode=ANSI;
+    else g_color_mode=NO;
     srand (time(NULL));
     int c;
     cout << "Wpisz rozmiar generowanej planszy lub 0, zeby pobrac plansze z pliku: ";
