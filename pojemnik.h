@@ -3,7 +3,7 @@ MIT License
 
 Copyright (c) 2018 Nircek
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
+Permission is hereby granted free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -21,12 +21,17 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#ifndef _GH_NIRCEK_LABIRYNT_COLOR_H_
-#define _GH_NIRCEK_LABIRYNT_COLOR_H_
-enum color_mode {ANSI, WIN, NO}; //g_color_mode
-enum color {BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, BBLACK, BRED, BGREEN, BYELLOW, BBLUE, BMAGENTA, BCYAN, BWHITE};
-enum surface {FG, BG};
-bool isModeAvailable(color_mode);
-void setColor(color, surface);
-extern color_mode g_color_mode;
-#endif
+#include <iostream>
+using namespace std;
+class pojemnik {
+    string s;
+    int part(int l, int r);
+    public:
+    void sort(int l=0, int r=-1);
+    size_t len();
+    void push(string ns);
+    void set(size_t ix, string ns); //zwraca ":" jeżeli nie ma elementu o takim ID
+    size_t search(string q);
+    string get(size_t ix); //zwraca ":" jeżeli nie ma elementu o takim ID
+    string cont();
+};

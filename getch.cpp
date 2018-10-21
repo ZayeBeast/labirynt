@@ -1,9 +1,10 @@
+#include "getch.h"
 /*
 MIT License
 
 Copyright (c) 2018 Nircek
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
+Permission is hereby granted free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -21,12 +22,32 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#ifndef _GH_NIRCEK_LABIRYNT_COLOR_H_
-#define _GH_NIRCEK_LABIRYNT_COLOR_H_
-enum color_mode {ANSI, WIN, NO}; //g_color_mode
-enum color {BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, BBLACK, BRED, BGREEN, BYELLOW, BBLUE, BMAGENTA, BCYAN, BWHITE};
-enum surface {FG, BG};
-bool isModeAvailable(color_mode);
-void setColor(color, surface);
-extern color_mode g_color_mode;
+
+// code from https://gist.github.com/Nircek/c8b104456e6c68068866425072a0863f
+// under MIT license
+#include <iostream>
+#ifndef _WIN32
+#include <unistd.h>
+#include <termios.h>
+char getch(){
+    // src: https://stackoverflow.com/a/16361724/6732111
+    char buf=0;
+    struct termios old={0};
+    std::cout.flush();
+    if(tcgetattr(0, &old)<0)
+        throw "tcsetattr()";
+    old.c_lflag&=~ICANON;
+    old.c_lflag&=~ECHO;
+    old.c_cc[VMIN]=1;
+    old.c_cc[VTIME]=0;
+    if(tcsetattr(0, TCSANOW, &old)<0)
+        throw "tcsetattr ICANON";
+    if(read(0,&buf,1)<0)
+        throw "read()";
+    old.c_lflag|=ICANON;
+    old.c_lflag|=ECHO;
+    if(tcsetattr(0, TCSADRAIN, &old)<0)
+        throw "tcsetattr ~ICANON";
+    return buf;
+ }
 #endif
