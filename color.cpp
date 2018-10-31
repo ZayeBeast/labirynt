@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 #include "color.h"
-//TODO: #include "getch.h"
+#include "getch.h"
 #include <iostream>
 using namespace std;
 #ifdef _WIN32
@@ -34,8 +34,7 @@ bool testansi() {
     cout<<"Czy widzisz tekst ponizej na czerwono [t, n]?\n\n\33[31mprzykladowy tekst\33[0m\n\n";
     ansichecked=true;
     while(1) {
-        char c;//TODO: getch();
-        cin>>c;
+        char c = getch();
         if(c=='t'||c=='T')return true;
         if(c=='n'||c=='N')return false;
     }
