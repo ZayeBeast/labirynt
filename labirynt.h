@@ -15,6 +15,13 @@ using namespace std;
 //struktury
 typedef struct{int x; int y;} COORDS;
 
+//definicje
+#define NO_EVENT            0
+#define UP_ARROW_EVENT      1
+#define DOWN_ARROW_EVENT    2
+#define LEFT_ARROW_EVENT    3
+#define RIGHT_ARROW_EVENT   4
+
 // zmienne globalne
 extern string mapy; //folder, w którym są mapy
 extern string file_name;   //ścieżka do mapy
@@ -36,6 +43,7 @@ void targetcoords(); // bierze koordy celu/wyjścia i wrzuca do zmiennej
 char get(COORDS);
 void set(COORDS, char);
 void generateMap(size_t width=SIZE, size_t height=SIZE); // generuje mapę o podanych w parametrach wymiarach oraz zapisuje ją w zmiennej mapa
+void calibrate(); //kalibracja klawiszy strzałek
 char getEvent(); //pobierz znak
 void doEvent(char); // wykonaj operację przypisaną do danego znaku (np WSAD)
 char drawOnBufor(COORDS, char); // narysuj na x i y znak c i zwróć poprzednie co tam było

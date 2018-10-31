@@ -4,9 +4,27 @@
 #include "getch.h"
 #include "labirynt.h"
 
+#define DEBUG false
+
 int main() {
     size_t wybor;
     try {
+        if(DEBUG) {
+            cout << "type \'c\' to break\n";
+            char ch;
+            while(1) {
+              ch=getch();
+              if(ch=='c')break;
+              cout<<(unsigned int)ch<<' ';
+            }
+        }
+        calibrate();//TODO: wsadzić to do menu
+        if(DEBUG) {
+            cout<<"Naciskaj kolejne klawisze strzalek, zeby przetestowac kalibracje.\n";
+            while(1) {
+                cout<<getEvent()<<' ';
+            }
+        }
         if(isModeAvailable(WIN))g_color_mode=WIN;
         else if(isModeAvailable(ANSI))g_color_mode=ANSI;
         else g_color_mode=NO;
@@ -35,9 +53,6 @@ int main() {
     }
     else if(wybor==1)
     {
-
-
-
             size_t i = (size_t)-1;
             while(doEnd(++i)) {
                 getMap();
