@@ -171,7 +171,7 @@ bool isEnd() {// czy jesteśmy na kordach wyjścia
                 }
 #include "pojemnik.h"
 void animate() {
-  cout<<"Udało Ci się rozegrac mape \'"<<prev_file<<"\'.\n\nKlijnij dowolny przycisk, zeby zagrac w kolejna...";
+  cout<<"Udało Ci się przejść mapę \""<<prev_file<<"\".\n\nNaciśnij dowolny przycisk, żeby zagrać w następną...";
   getch();
 }
 bool doEnd(bool animation) {                  // wykonaj animację wygranej i przerzuć do następnego pliku

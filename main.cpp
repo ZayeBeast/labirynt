@@ -6,13 +6,12 @@
 
 int main() {
     winutf8();
-    cout<<"zażółć gęślą jaźń ZAŻÓŁĆ GĘŚLĄ JAŹŃ\n";
     if(isModeAvailable(WIN))g_color_mode=WIN;
     else if(isModeAvailable(ANSI))g_color_mode=ANSI;
     else g_color_mode=NO;
     srand (time(NULL));
     int c;
-    cout << "Wpisz rozmiar generowanej planszy lub 0, zeby pobrac plansze z pliku: ";
+    cout << "Wpisz rozmiar generowanej mapy lub 0, jeżeli chcesz odczytywać mapy z plików: ";
     cin >> c;
     cout << "Pobrano " << c << '\n';
     try {
