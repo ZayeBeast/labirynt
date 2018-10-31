@@ -4,20 +4,25 @@
 #include "getch.h"
 #include "labirynt.h"
 
+#define DEBUG false
+
 int main() {
     try {
-        //debug:
-        cout << "type \'c\' to break\n";
-        char ch;
-        while(1) {
-          ch=getch();
-          if(ch=='c')break;
-          cout<<(unsigned int)ch<<' ';
+        if(DEBUG) {
+            cout << "type \'c\' to break\n";
+            char ch;
+            while(1) {
+              ch=getch();
+              if(ch=='c')break;
+              cout<<(unsigned int)ch<<' ';
+            }
         }
         calibrate();//TODO: wsadzić to do menu
-        cout<<"Naciskaj kolejne klawisze strzalek, zeby przetestowac kalibracje.\n";
-        while(1) {
-            cout<<getEvent()<<' ';
+        if(DEBUG) {
+            cout<<"Naciskaj kolejne klawisze strzalek, zeby przetestowac kalibracje.\n";
+            while(1) {
+                cout<<getEvent()<<' ';
+            }
         }
         if(isModeAvailable(WIN))g_color_mode=WIN;
         else if(isModeAvailable(ANSI))g_color_mode=ANSI;
