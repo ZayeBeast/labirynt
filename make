@@ -1,5 +1,5 @@
 #!/bin/sh
-g++ *.cpp
+g++ *.cpp -ansi -pedantic -Wall -Wextra -Weffc++
 E=$?
 echo GET $E
 if [ "$1" != "o" ]; then
