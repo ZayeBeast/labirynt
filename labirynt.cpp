@@ -74,6 +74,11 @@ void set(COORDS c, char ch) {
     if(!isExist(c)) return;
     mapa[c.y][c.x] = ch;
 }
+void winutf8() {
+    #if __WIN32
+    system("chcp 65001");
+    #endif // __WIN32
+}
 
 // generuje mapę o podanych w parametrach wymiarach oraz zapisuje ją w zmiennej mapa
 void generateMap(size_t width, size_t height) {

@@ -5,6 +5,8 @@
 #include "labirynt.h"
 
 int main() {
+    winutf8();
+    cout<<"zażółć gęślą jaźń ZAŻÓŁĆ GĘŚLĄ JAŹŃ\n";
     if(isModeAvailable(WIN))g_color_mode=WIN;
     else if(isModeAvailable(ANSI))g_color_mode=ANSI;
     else g_color_mode=NO;

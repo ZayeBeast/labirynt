@@ -35,6 +35,7 @@ void beginingcoords(); // bierze poczontkowe koordy i wrzuca do zmiennej
 void targetcoords(); // bierze koordy celu/wyjścia i wrzuca do zmiennej
 char get(COORDS);
 void set(COORDS, char);
+void winutf8();
 void generateMap(size_t width=SIZE, size_t height=SIZE); // generuje mapę o podanych w parametrach wymiarach oraz zapisuje ją w zmiennej mapa
 char getEvent(); //pobierz znak
 void doEvent(char); // wykonaj operację przypisaną do danego znaku (np WSAD)
