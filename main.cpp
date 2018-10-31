@@ -32,13 +32,13 @@ int main() {
         do{
             clear_screen();
 
-    cout<<"Witaj w naszej amatorskiej grze 'Labirynt'."<<endl<<endl<<endl;
-    cout<<"----------MENU----------"                   <<endl;
+    cout<<"Witaj w naszej amatorskiej grze \"Labirynt\"."<<endl<<endl<<endl;
+    cout<<"+---------MENU---------+"                   <<endl;
     cout<<"| Wybierz:             |"                   <<endl;
     cout<<"| 1. - Kampania        |"                   <<endl;
     cout<<"| 2. - Losowa mapa     |"                   <<endl;
     cout<<"| 3. - Wyswietl Tworcow|"                   <<endl;
-    cout<<"------------------------"                   <<endl;
+    cout<<"+----------------------+"                   <<endl;
 
     cout<<"Wybieram: ";
     cin>>wybor;
@@ -46,8 +46,8 @@ int main() {
     {
         size_t cordy1, cordy2;
         cout<<"Wybierz rozmiar mapy: "<<endl;
-        cout<<"Koordynaty x: ";cin>>cordy1;
-        cout<<"Koordynaty y: ";cin>>cordy2;
+        cout<<"Podaj szerokosc: ";cin>>cordy1;
+        cout<<"Podaj wysokosc: ";cin>>cordy2;
         generateMap(cordy1,cordy2);
         loop();
     }
@@ -62,10 +62,11 @@ int main() {
     }
     else if(wybor==3)
     {
-        cout<<"MrccZnepva aka Nircek"<<endl;
-        cout<<"MrDarkness19"         <<endl;
-        cout<<"GummyBear"            <<endl;
-        cout<<"Bialas"               <<endl;
+        cout << "Nircek aka Mrcc Znepva" << endl;
+        cout << "MrDarkness19"           << endl;
+        cout << "Crackenhoff"            << endl;
+        cout << "GummyBear"              << endl;
+        cout << "IgorBia"                << endl;
     }
 
     else
