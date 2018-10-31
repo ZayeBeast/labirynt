@@ -76,7 +76,7 @@ void set(COORDS c, char ch) {
 }
 void winutf8() {
     #if __WIN32
-    system("chcp 65001");
+    system("chcp 65001>nul");
     #endif // __WIN32
 }
 
