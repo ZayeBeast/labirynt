@@ -14,6 +14,7 @@ int main() {
           if(ch=='c')break;
           cout<<(unsigned int)ch<<' ';
         }
+        calibrate();//TODO: wsadzić to do menu
         if(isModeAvailable(WIN))g_color_mode=WIN;
         else if(isModeAvailable(ANSI))g_color_mode=ANSI;
         else g_color_mode=NO;

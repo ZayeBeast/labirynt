@@ -117,6 +117,10 @@ void generateMap(size_t width, size_t height) {
 #define LEFT_ARROW_EVENT    3
 #define RIGHT_ARROW_EVENT   4
 
+void calibrate() {
+    cerr<<"Tutaj powinna odbyc sie kalibracja klawiszy!\n";
+}
+
 char getEvent()
 
     {
