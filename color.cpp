@@ -55,6 +55,7 @@ bool isModeAvailable(color_mode cm) {
             return false;
             #endif
     }
+    return false;
 }
 void setColor(color c, surface s) {
     bool b=false, bs=(s==FG);
