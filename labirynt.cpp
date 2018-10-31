@@ -111,12 +111,6 @@ void generateMap(size_t width, size_t height) {
   }
 }
 
-#define NO_EVENT            0
-#define UP_ARROW_EVENT      1
-#define DOWN_ARROW_EVENT    2
-#define LEFT_ARROW_EVENT    3
-#define RIGHT_ARROW_EVENT   4
-
 void calibrate() {
     cerr<<"Tutaj powinna odbyc sie kalibracja klawiszy!\n";
 }
