@@ -59,7 +59,7 @@ bool isModeAvailable(color_mode cm) {
 }
 void setColor(color c, surface s) {
     bool b=false, bs=(s==FG);
-    char cc;
+    char cc='0';
     string cs;
     switch(g_color_mode) {
         case NO:
