@@ -22,18 +22,18 @@ Następnie włącz konsolę z możliwością używania gita i wpisz:
 git clone https://github.com/Nircek/labirynt.git
 ```
 Pliki źródłowe zostaną wypakowane do nowostworzonego folderu `labirynt`, który znajduje się w aktualnie otwartym folderze.
-Żeby dowiedzieć się w jakim aktualnie jesteś folderze w konsoli wpisz:
+Żeby dowiedzieć się w jakim  jesteś folderze, wpisz w konsoli:
 * na systemach unixopodobnych: `pwd`
 * na Windowsach: `echo %cd%`
 
 Ponadto, jeżeli jesteś na systemie unixopodobnym, powinieneś być w stanie wejść do folderu `labirynt` za pomocą komendy `cd labirynt` oraz wykonać skrypt z automatycznym kompilowaniem i uruchamianiem labiryntu za pomocą komendy `./make`.
 
 ## TODO
-* Multiplayer,
-* Dźwięki i muzyka,
-* Uniwersalne menu,
-* Obsługa strzałek,
-* Ikony.
+* Multiplayer
+* Dźwięki i muzyka
+* Uniwersalne menu
+* Obsługa strzałek
+* Ikony
 
 Więcej funkcjonalności, które będą w przyszłości, można zobaczyć w [issues](https://github.com/Nircek/labirynt/issues). 
 
