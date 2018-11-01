@@ -61,7 +61,7 @@ void targetcoords() { // bierze koordy celu/wyjścia i wrzuca do zmiennej
     do{
         end_coords = randomCoords();
         rozmiar = sqrt(2*pow(mapa[0].size(),2))/2;
-        rzmr = sqrt(pow(player_coords.x-end_coords.x,2)+pow(player_coords.y-end_coords.y,2));
+        rzmr = sqrt(pow((int)(player_coords.x-end_coords.x),2)+pow((int)(player_coords.y-end_coords.y),2));
         cout << rzmr << " "<< rozmiar << endl;
     }while (rzmr<rozmiar);
 }
