@@ -57,7 +57,7 @@ void beginingcoords() { // bierze poczontkowe koordy i wrzuca do zmiennej
   player_coords = randomCoords();
 }
 void targetcoords() { // bierze koordy celu/wyjścia i wrzuca do zmiennej
-   int rozmiar ,rzmr,sm=SIZE,sn=SIZE ;
+   int rozmiar, rzmr;
     do{
         end_coords = randomCoords();
         rozmiar = sqrt(2*pow(mapa[0].size(),2))/2;
