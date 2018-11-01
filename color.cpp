@@ -77,10 +77,10 @@ void setColor(color c, surface s) {
                 case BWHITE:    b=true; case WHITE:    cc='7'; break;
             }
             switch((!bs)|(b<<1)) {
-                case 0b00: cs="3";  break;
-                case 0b01: cs="4";  break;
-                case 0b10: cs="9";  break;
-                case 0b11: cs="10"; break;
+                /*0b00*/case 0: cs="3";  break;
+                /*0b01*/case 1: cs="4";  break;
+                /*0b10*/case 2: cs="9";  break;
+                /*0b11*/case 3: cs="10"; break;
             }
             cout<<"\33["<<cs<<cc<<'m';
             break;
