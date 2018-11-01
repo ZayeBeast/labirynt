@@ -1,5 +1,5 @@
 #include "labirynt.h"
-
+#include <ctime>
 // zmienne globalne
 string mapy="maps"; //folder, w którym są mapy
 string file_name;   //ścieżka do mapy
@@ -10,6 +10,7 @@ vector<string> mapa;
 char user_ch='X', end_ch='O';
 COORDS player_coords;
 COORDS end_coords;
+string znak[4];
 
 void getMap()
 {
@@ -110,9 +111,42 @@ void generateMap(size_t width, size_t height) {
     }
   }
 }
+void pobranie(int a)
+{
+            time_t koniec;
+            int i=0;
+            char cos;
+            bool b=false;
+            while(true)
+        {
+            cos=getch();
+            if(!b)
+            {
+                koniec= time(NULL) + 1 ;
+                b=true;
+            }
+
+            if (time(NULL)>=koniec) break;
+            znak[a]+=cos;
+        }
+}
 
 void calibrate() {
-    cerr<<"Tutaj powinna odbyc sie kalibracja klawiszy!\n";
+string napis[4];
+
+
+    napis[0]="lewo";
+    napis[1]="prawo";
+    napis[2]="gore";
+    napis[3]="dol";
+
+
+        int i=0;
+        for(i;i<4;i++)
+        {
+         cout<<"wcisnij strzalke w (poczekaj ok 1s)"<<napis[i]<<endl;
+        pobranie(i);
+        }
 }
 
 char getEvent()
@@ -122,7 +156,8 @@ char getEvent()
     }// pobierz znak
 void doEvent(char c) {
     c = toupper(c);
-    unsigned char strzalka =c;//zmienna tylko do strzalek
+    string strzalka;
+    strzalka[0] =c;//zmienna tylko do strzalek
     COORDS n=player_coords;
     switch(c) {
         case 'W': --n.y; break;
@@ -130,16 +165,17 @@ void doEvent(char c) {
         case 'A': --n.x; break;
         case 'D': ++n.x; break;
     }
-    switch( strzalka ){
-        case 0: //klawisze specjalne (czasem 0 czasem 224 - zale¿ne od pc'ta chyba)
-        case 224: //klawisze specjalne
-        strzalka = getch();
-        switch( strzalka ){//to samo co wczesniej
-        case 72: --n.y; break;
-        case 80: ++n.y; break;
-        case 75:--n.x; break;
-        case 77:++n.x; break;
-        }}
+    int cz=znak[0].length();
+    for(int i=1;i<cz;i++)
+    {
+        strzalka[i]+=getch();
+    }
+    if (strzalka==znak[0]) --n.x;
+    if (strzalka==znak[1]) ++n.x;
+    if (strzalka==znak[2]) --n.y;
+    if (strzalka==znak[3]) ++n.y;
+
+
     if(!isWall(n))
         player_coords = n;
 
