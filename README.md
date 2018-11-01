@@ -35,7 +35,7 @@ Ponadto, jeżeli jesteś na systemie unixopodobnym powinieneś być w stanie wej
 * Obsługa strzałek
 * Ikony
 
-Więcej funkcjonalności, które będą w przyszłości, można zobaczyć na [stronie repozytorium](https://github.com/Nircek/labirynt/issues) 
+Więcej funkcjonalności, które będą w przyszłości, można zobaczyć w [issues](https://github.com/Nircek/labirynt/issues) 
 
 ## Status
 Projekt jest: _w trakcie tworzenia_
