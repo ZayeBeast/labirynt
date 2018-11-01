@@ -1,12 +1,12 @@
 #!/bin/sh
 if [ "$1" = "r" ]; then
-  g++ *.cpp -Wall -fexceptions -O3 -Weffc++ -pedantic -Wextra -Wall -ansi -Og -g -Werror
+  g++ *.cpp -Wall -fexceptions -Weffc++ -pedantic -Wextra -ansi -O3 -Werror
   E=$?
 elif [ "$1" = "e" ]; then
-  g++ *.cpp -Wall -fexceptions -Weffc++ -pedantic -Wextra -Wall -ansi -Og -g
+  g++ *.cpp -Wall -fexceptions -Weffc++ -pedantic -Wextra -ansi -Og -g
   E=$?
 else
-  g++ *.cpp -Wall -fexceptions -Weffc++ -pedantic -Wextra -Wall -ansi -Og -g -Werror
+  g++ *.cpp -Wall -fexceptions -Weffc++ -pedantic -Wextra -ansi -Og -g -Werror
   E=$?
 fi
 echo GET $E
