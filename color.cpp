@@ -67,14 +67,14 @@ void setColor(color c, surface s) {
             break;
         case ANSI:
             switch(c) {
-                case BBLACK:    b=true; case BLACK:    cc='0'; break;
-                case BRED:      b=true; case RED:      cc='1'; break;
-                case BGREEN:    b=true; case GREEN:    cc='2'; break;
-                case BYELLOW:   b=true; case YELLOW:   cc='3'; break;
-                case BBLUE:     b=true; case BLUE:     cc='4'; break;
-                case BMAGENTA:  b=true; case MAGENTA:  cc='5'; break;
-                case BCYAN:     b=true; case CYAN:     cc='6'; break;
-                case BWHITE:    b=true; case WHITE:    cc='7'; break;
+                case BBLACK:    b=true; /*FALLTHRU*/case BLACK:    cc='0'; break;
+                case BRED:      b=true; /*FALLTHRU*/case RED:      cc='1'; break;
+                case BGREEN:    b=true; /*FALLTHRU*/case GREEN:    cc='2'; break;
+                case BYELLOW:   b=true; /*FALLTHRU*/case YELLOW:   cc='3'; break;
+                case BBLUE:     b=true; /*FALLTHRU*/case BLUE:     cc='4'; break;
+                case BMAGENTA:  b=true; /*FALLTHRU*/case MAGENTA:  cc='5'; break;
+                case BCYAN:     b=true; /*FALLTHRU*/case CYAN:     cc='6'; break;
+                case BWHITE:    b=true; /*FALLTHRU*/case WHITE:    cc='7'; break;
             }
             switch((!bs)|(b<<1)) {
                 /*0b00*/case 0: cs="3";  break;
