@@ -22,7 +22,7 @@ Następnie włącz konsolę z możliwością używania gita i wpisz:
 git clone https://github.com/Nircek/labirynt.git
 ```
 Pliki źródłowe zostaną wypakowane do nowostworzonego folderu `labirynt`, który znajduje się w aktualnie otwartym folderze.
-Żeby dowiedzieć się w jakim  jesteś folderze, wpisz w konsoli:
+Żeby dowiedzieć się w jakim jesteś folderze, wpisz w konsoli:
 * na systemach unixopodobnych: `pwd`
 * na Windowsach: `echo %cd%`
 
