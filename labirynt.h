@@ -13,7 +13,7 @@
 using namespace std;
 
 //struktury
-typedef struct{int x; int y;} COORDS;
+typedef struct{size_t x; size_t y;} COORDS;
 
 // zmienne globalne
 extern string mapy; //folder, w którym są mapy

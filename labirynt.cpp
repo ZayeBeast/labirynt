@@ -79,11 +79,11 @@ void set(COORDS c, char ch) {
 void generateMap(size_t width, size_t height) {
   //src: https://gist.github.com/Nircek/7e1ee37e0bbc30f7ab554c633209a8d4/60b41682b6561b848b7d34ae338c9e8a9ca7ba6e#file-mazes-py-L75
   SIZE = height;
-  for(int i=0;i<height;++i)
+  for(size_t i=0;i<height;++i)
     mapa.push_back(string(width, '#'));
   COORDS c = randomCoords(false);
   set(c,' ');
-  int it = 0;
+  size_t it = 0;
   while(1) {
     c = randomCoords(false);
     int n = 0;
