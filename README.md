@@ -1,15 +1,6 @@
 # Labirynt
 > Prosta gra.
 
-## Spis treści
-* [Informacje ogólne](#ogólne-informacje)
-* [Autorzy](#autorzy)
-* [Technologie](#technologie)
-* [Setup](#setup)
-* [Rozwój](#rozwój)
-* [Status](#status)
-* [Kontakt](#kontakt)
-
 ## Ogólne informacje
 Ten projekt jest demonstracją używania gita w grupie.
 
@@ -35,17 +26,16 @@ Pliki źródłowe zostaną wypakowane do nowostworzonego folderu `labirynt`, kt�
 * na systemach unixopodobnych: `pwd`
 * na Windowsach: `echo %cd%`
 
-Ponadto jeżeli jesteś na systemie unixopodobnym powinieneś być w stanie wejść do folderu `labirynt` za pomocą komendy `cd labirynt` oraz wykonać skrypt z automatycznym kompilowaniem i uruchamianiem labiryntu za pomocą komendy `./make`.
+Ponadto, jeżeli jesteś na systemie unixopodobnym powinieneś być w stanie wejść do folderu `labirynt` za pomocą komendy `cd labirynt` oraz wykonać skrypt z automatycznym kompilowaniem i uruchamianiem labiryntu za pomocą komendy `./make`.
 
-## Rozwój
+## TODO
 * Multiplayer
 * Dźwięki i muzyka
-* Czarno-białe mapy
 * Uniwersalne menu
 * Obsługa strzałek
 * Ikony
 
-Więcej funkcjonalności, które będą w przyszłości, można zobaczyć na: https://github.com/Nircek/labirynt/issues 
+Więcej funkcjonalności, które będą w przyszłości, można zobaczyć na [stronie repozytorium](https://github.com/Nircek/labirynt/issues) 
 
 ## Status
 Projekt jest: _w trakcie tworzenia_
