@@ -19,7 +19,7 @@ typedef struct{int x; int y;} COORDS;
 extern string mapy; //folder, w którym są mapy
 extern string file_name;   //ścieżka do mapy
 extern string prev_file;   //nazwa poprzedniej mapy
-extern size_t SIZE;
+extern size_t size_map;
 extern string *bufor;
 extern vector<string> mapa;
 extern char user_ch, end_ch;
@@ -36,7 +36,7 @@ void targetcoords(); // bierze koordy celu/wyjścia i wrzuca do zmiennej
 char get(COORDS);
 void set(COORDS, char);
 void winutf8();
-void generateMap(size_t width=SIZE, size_t height=SIZE); // generuje mapę o podanych w parametrach wymiarach oraz zapisuje ją w zmiennej mapa
+void generateMap(size_t width=size_map, size_t height=size_map); // generuje mapę o podanych w parametrach wymiarach oraz zapisuje ją w zmiennej mapa
 char getEvent(); //pobierz znak
 void doEvent(char); // wykonaj operację przypisaną do danego znaku (np WSAD)
 char drawOnBufor(COORDS, char); // narysuj na x i y znak c i zwróć poprzednie co tam było
