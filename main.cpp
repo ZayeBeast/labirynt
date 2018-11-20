@@ -3,12 +3,13 @@
 #include <ctime>       /* time */
 #include "getch.h"
 #include "labirynt.h"
-
+#include <time.h>
 #define DEBUG false
 
 int main() {
     size_t wybor;
     try {
+        int takasobiezmienna=1;
         if(DEBUG) {
             cout << "type \'c\' to break\n";
             char ch;
@@ -31,13 +32,15 @@ int main() {
         srand (time(NULL));
         do{
             clear_screen();
-
+    do{
+    clear_screen();
     cout<<"Witaj w naszej amatorskiej grze \"Labirynt\"."<<endl<<endl<<endl;
     cout<<"+---------MENU---------+"                   <<endl;
     cout<<"| Wybierz:             |"                   <<endl;
     cout<<"| 1. - Kampania        |"                   <<endl;
     cout<<"| 2. - Losowa mapa     |"                   <<endl;
     cout<<"| 3. - Wyswietl Tworcow|"                   <<endl;
+    cout<<"| 4. - Wyjdz           |"                   <<endl;
     cout<<"+----------------------+"                   <<endl;
 
     cout<<"Wybieram: ";
@@ -50,6 +53,9 @@ int main() {
         cout<<"Podaj wysokosc: ";cin>>cordy2;
         generateMap(cordy1,cordy2);
         loop();
+    clear_screen();
+    cout<<"Gratulacje !!! Wygrales"<<endl;
+    getch();
     }
     else if(wybor==1)
     {
@@ -58,6 +64,9 @@ int main() {
                 getMap();
                 loop();
             }
+    clear_screen();
+    cout<<"Gratulacje !!! Wygrales"<<endl;
+    getch();
 
     }
     else if(wybor==3)
@@ -66,7 +75,18 @@ int main() {
         cout << "MrDarkness19"           << endl;
         cout << "Crackenhoff"            << endl;
         cout << "GummyBear"              << endl;
-        cout << "IgorBia"                << endl;
+        cout << "Bialas"                 << endl;
+        getch();
+
+    }
+    else if(wybor==4)
+    {
+        clear_screen();
+        cout<<"Nastapi wyjscie z programu"<<endl;
+        getchar();
+
+
+        return 0;
     }
 
     else
@@ -75,6 +95,7 @@ int main() {
         getch();
     }
 
+    }while(takasobiezmienna==1);
     }while(wybor!=1&&wybor!=2&&wybor!=3);
     return 0;
         }catch(const char * c) {
