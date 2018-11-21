@@ -8,7 +8,6 @@
 int main() {
     size_t wybor;
     try {
-        int takasobiezmienna=1;
         if(DEBUG) {
             cout << "type \'c\' to break\n";
             char ch;
@@ -42,33 +41,30 @@ int main() {
 
     cout<<"Wybieram: ";
     cin>>wybor;
-if(wybor==1||wybor==2)
+    bool won=false;
+    size_t i = (size_t)-1;
+switch(wybor)
 {
-
-    if(wybor==2)
-    {
-        size_t cordy1, cordy2;
-        cout<<"Wybierz rozmiar mapy: "<<endl;
-        cout<<"Podaj szerokosc: ";cin>>cordy1;
-        cout<<"Podaj wysokosc: ";cin>>cordy2;
-        generateMap(cordy1,cordy2);
-        loop();
-    }
-    else if(wybor==1)
-    {
-            size_t i = (size_t)-1;
+    case 1:
             while(doEnd(++i)) {
                 getMap();
                 loop();
             }
+            won=true;
+    break;
 
-    }
-clear_screen();
-cout<<"Gratulacje !!! Wygrales"<<endl;
-getch();
-}
-    else if(wybor==3)
-    {
+
+    case 2:
+            size_t cordy1, cordy2;
+            cout<<"Wybierz rozmiar mapy: "<<endl;
+            cout<<"Podaj szerokosc: ";cin>>cordy1;
+            cout<<"Podaj wysokosc: ";cin>>cordy2;
+            generateMap(cordy1,cordy2);
+            loop();
+            won=true;
+    break;
+
+    case 3:
         clear_screen();
         cout << "---------TWORCY---------" <<endl;
         cout << "Nircek aka Mrcc Znepva" << endl;
@@ -77,20 +73,22 @@ getch();
         cout << "GummyBear"              << endl;
         cout << "Bialas"                 << endl;
         getch();
-    }
-    else if(wybor==4)
-    {
+
+    break;
+
+    case 4:
         clear_screen();
         cout<<"Nastapi wyjscie z programu"<<endl;
         getchar();
         return 0;
-    }
-    else
-    {
+    break;
+
+    default:
         cout<<"Nie znaleziono takiej opcji..."<<endl;
         getch();
-    }
-
+    break;
+}
+    if(won){clear_screen(); cout<<"Gratulacje wygrales !!!"; getch();}
     }while(true);
     return 0;
         }catch(const char * c) {
