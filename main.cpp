@@ -3,7 +3,6 @@
 #include <ctime>       /* time */
 #include "getch.h"
 #include "labirynt.h"
-#include <time.h>
 #define DEBUG false
 
 int main() {
@@ -31,8 +30,6 @@ int main() {
         else g_color_mode=NO;
         srand (time(NULL));
         do{
-            clear_screen();
-    do{
     clear_screen();
     cout<<"Witaj w naszej amatorskiej grze \"Labirynt\"."<<endl<<endl<<endl;
     cout<<"+---------MENU---------+"                   <<endl;
@@ -45,6 +42,9 @@ int main() {
 
     cout<<"Wybieram: ";
     cin>>wybor;
+if(wybor==1||wybor==2)
+{
+
     if(wybor==2)
     {
         size_t cordy1, cordy2;
@@ -53,9 +53,6 @@ int main() {
         cout<<"Podaj wysokosc: ";cin>>cordy2;
         generateMap(cordy1,cordy2);
         loop();
-    clear_screen();
-    cout<<"Gratulacje !!! Wygrales"<<endl;
-    getch();
     }
     else if(wybor==1)
     {
@@ -64,39 +61,37 @@ int main() {
                 getMap();
                 loop();
             }
-    clear_screen();
-    cout<<"Gratulacje !!! Wygrales"<<endl;
-    getch();
 
     }
+clear_screen();
+cout<<"Gratulacje !!! Wygrales"<<endl;
+getch();
+}
     else if(wybor==3)
     {
+        clear_screen();
+        cout << "---------TWORCY---------" <<endl;
         cout << "Nircek aka Mrcc Znepva" << endl;
         cout << "MrDarkness19"           << endl;
         cout << "Crackenhoff"            << endl;
         cout << "GummyBear"              << endl;
         cout << "Bialas"                 << endl;
         getch();
-
     }
     else if(wybor==4)
     {
         clear_screen();
         cout<<"Nastapi wyjscie z programu"<<endl;
         getchar();
-
-
         return 0;
     }
-
     else
     {
         cout<<"Nie znaleziono takiej opcji..."<<endl;
         getch();
     }
 
-    }while(takasobiezmienna==1);
-    }while(wybor!=1&&wybor!=2&&wybor!=3);
+    }while(true);
     return 0;
         }catch(const char * c) {
         cout << "error: " << c;
