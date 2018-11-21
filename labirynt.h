@@ -9,6 +9,25 @@
 #include <vector>
 #include "getch.h"
 #include "color.h"
+#if _WIN32
+#include <windows.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
+typedef struct _CONSOLE_FONT_INFOEX {
+  ULONG cbSize;
+  DWORD nFont;
+  COORD dwFontSize;
+  UINT  FontFamily;
+  UINT  FontWeight;
+  WCHAR FaceName[LF_FACESIZE];
+} CONSOLE_FONT_INFOEX, *PCONSOLE_FONT_INFOEX;
+BOOL WINAPI GetCurrentConsoleFontEx(HANDLE, BOOL, PCONSOLE_FONT_INFOEX);
+BOOL WINAPI SetCurrentConsoleFontEx(HANDLE, BOOL, PCONSOLE_FONT_INFOEX);
+#ifdef __cplusplus
+}
+#endif
+#endif
 
 using namespace std;
 

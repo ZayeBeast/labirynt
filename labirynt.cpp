@@ -76,6 +76,17 @@ void set(COORDS c, char ch) {
 }
 void winutf8() {
     #if __WIN32
+    CONSOLE_FONT_INFOEX cfi;
+    HANDLE hndl = GetStdHandle(STD_OUTPUT_HANDLE);
+    GetCurrentConsoleFontEx(hndl, false, &cfi);
+    cfi.cbSize = sizeof cfi;
+    cfi.nFont = 0;
+    cfi.dwFontSize.X = 0;
+    cfi.dwFontSize.Y = 12;
+    cfi.FontFamily = FF_DONTCARE;
+    cfi.FontWeight = FW_NORMAL;
+    wcscpy(cfi.FaceName, L"Lucida Console");
+    SetCurrentConsoleFontEx(hndl, 0, &cfi);
     system("chcp 65001>nul");
     #endif // __WIN32
 }
