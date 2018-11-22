@@ -23,11 +23,12 @@ int main() {
                 cout<<getEvent()<<' ';
             }
         }
-        if(isModeAvailable(WIN))g_color_mode=WIN;
-        else if(isModeAvailable(ANSI))g_color_mode=ANSI;
-        else g_color_mode=NO;
-        srand (time(NULL));
-        do{
+    winutf8();
+    if(isModeAvailable(WIN))g_color_mode=WIN;
+    else if(isModeAvailable(ANSI))g_color_mode=ANSI;
+    else g_color_mode=NO;
+    srand (time(NULL));
+    do{
     clear_screen();
     cout<<"         Witaj w naszej amatorskiej grze \"Labirynt\"."<<endl<<endl<<endl;
     cout<<"   ################################################"       <<endl;
