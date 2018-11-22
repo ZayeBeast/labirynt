@@ -82,7 +82,7 @@ void winutf8() {
     cfi.cbSize = sizeof cfi;
     cfi.nFont = 0;
     cfi.dwFontSize.X = 0;
-    cfi.dwFontSize.Y = 12;
+    cfi.dwFontSize.Y = 28;
     cfi.FontFamily = FF_DONTCARE;
     cfi.FontWeight = FW_NORMAL;
     wcscpy(cfi.FaceName, L"Lucida Console");

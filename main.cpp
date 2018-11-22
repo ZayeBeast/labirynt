@@ -42,8 +42,6 @@ int main() {
     cout<<"    #       | 5. - Wyjdz                 |       # "       <<endl;
     cout<<"   #        |------------MENU------------|        #"       <<endl;
     cout<<"   ################################################"       <<endl<<endl<<endl;
-
-
     cout<<"         Wybieram: ";
     cin>>wybor;
     bool won=false;
