@@ -6,7 +6,7 @@
 #define DEBUG false
 
 int main() {
-    size_t wybor;
+    char wybor=0;
     try {
         if(DEBUG) {
             cout << "type \'c\' to break\n";
@@ -28,9 +28,9 @@ int main() {
     else if(isModeAvailable(ANSI))g_color_mode=ANSI;
     else g_color_mode=NO;
     srand (time(NULL));
-    do{
+    for(;;){
     clear_screen();
-    cout<<"         Witaj w naszej amatorskiej grze \"Labirynt\"."<<endl<<endl<<endl;
+    cout<<"         Witaj w naszej amatorskiej grze \"Labirynt\"."    <<endl<<endl<<endl;
     cout<<"   ################################################"       <<endl;
     cout<<"   #                                              #"       <<endl;
     cout<<"    #       |------------MENU------------|       # "       <<endl;
@@ -43,12 +43,12 @@ int main() {
     cout<<"   #        |------------MENU------------|        #"       <<endl;
     cout<<"   ################################################"       <<endl<<endl<<endl;
     cout<<"         Wybieram: ";
-    cin>>wybor;
+    wybor = getch();
     bool won=false;
     size_t i = (size_t)-1;
 switch(wybor)
 {
-    case 1:
+    case '1':
             while(doEnd(++i)) {
                 getMap();
                 loop();
@@ -57,7 +57,8 @@ switch(wybor)
     break;
 
 
-    case 2:
+    case '2':
+            clear_screen();
             size_t cordy1, cordy2;
             cout<<"Wybierz rozmiar mapy: "<<endl;
             cout<<"Podaj szerokosc: ";cin>>cordy1;
@@ -67,7 +68,7 @@ switch(wybor)
             won=true;
     break;
 
-    case 3:
+    case '3':
         clear_screen();
         cout << "---------TWORCY---------" <<endl;
         cout << "Nircek aka Mrcc Znepva" << endl;
@@ -79,11 +80,12 @@ switch(wybor)
 
     break;
 
-    case 4:
+    case '4':
+        clear_screen();
         calibrate();
     break;
 
-    case 5:
+    case '5':
         clear_screen();
         cout<<"Nastapi wyjscie z programu"<<endl;
         getchar();
@@ -96,7 +98,7 @@ switch(wybor)
     break;
 }
     if(won){clear_screen(); cout<<"Gratulacje wygrales !!!"; getch();}
-    }while(true);
+    }
     return 0;
         }catch(const char * c) {
         cout << "error: " << c;
