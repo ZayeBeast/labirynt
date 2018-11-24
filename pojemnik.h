@@ -27,6 +27,7 @@ class pojemnik {
     string s;
     int part(int l, int r);
     public:
+    pojemnik();
     void sort(int l=0, int r=-1);
     size_t len();
     void push(string ns);

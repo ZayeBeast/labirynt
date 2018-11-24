@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 #include "color.h"
-//TODO: #include "getch.h"
+#include "getch.h"
 #include <iostream>
 using namespace std;
 #ifdef _WIN32
@@ -34,8 +34,7 @@ bool testansi() {
     cout<<"Czy poniższy tekst wyświetla Ci się na czerwono? [t, n]\n\n\33[31mprzykładowy tekst\33[0m\n\n";
     ansichecked=true;
     while(1) {
-        char c;//TODO: getch();
-        cin>>c;
+        char c = getch();
         if(c=='t'||c=='T')return true;
         if(c=='n'||c=='N')return false;
     }
@@ -56,10 +55,11 @@ bool isModeAvailable(color_mode cm) {
             return false;
             #endif
     }
+    return false;
 }
 void setColor(color c, surface s) {
     bool b=false, bs=(s==FG);
-    char cc;
+    char cc='0';
     string cs;
     switch(g_color_mode) {
         case NO:
@@ -67,20 +67,20 @@ void setColor(color c, surface s) {
             break;
         case ANSI:
             switch(c) {
-                case BBLACK:    b=true; case BLACK:    cc='0'; break;
-                case BRED:      b=true; case RED:      cc='1'; break;
-                case BGREEN:    b=true; case GREEN:    cc='2'; break;
-                case BYELLOW:   b=true; case YELLOW:   cc='3'; break;
-                case BBLUE:     b=true; case BLUE:     cc='4'; break;
-                case BMAGENTA:  b=true; case MAGENTA:  cc='5'; break;
-                case BCYAN:     b=true; case CYAN:     cc='6'; break;
-                case BWHITE:    b=true; case WHITE:    cc='7'; break;
+                case BBLACK:    b=true; /*FALLTHRU*/case BLACK:    cc='0'; break;
+                case BRED:      b=true; /*FALLTHRU*/case RED:      cc='1'; break;
+                case BGREEN:    b=true; /*FALLTHRU*/case GREEN:    cc='2'; break;
+                case BYELLOW:   b=true; /*FALLTHRU*/case YELLOW:   cc='3'; break;
+                case BBLUE:     b=true; /*FALLTHRU*/case BLUE:     cc='4'; break;
+                case BMAGENTA:  b=true; /*FALLTHRU*/case MAGENTA:  cc='5'; break;
+                case BCYAN:     b=true; /*FALLTHRU*/case CYAN:     cc='6'; break;
+                case BWHITE:    b=true; /*FALLTHRU*/case WHITE:    cc='7'; break;
             }
             switch((!bs)|(b<<1)) {
-                case 0b00: cs="3";  break;
-                case 0b01: cs="4";  break;
-                case 0b10: cs="9";  break;
-                case 0b11: cs="10"; break;
+                /*0b00*/case 0: cs="3";  break;
+                /*0b01*/case 1: cs="4";  break;
+                /*0b10*/case 2: cs="9";  break;
+                /*0b11*/case 3: cs="10"; break;
             }
             cout<<"\33["<<cs<<cc<<'m';
             break;

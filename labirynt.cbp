@@ -12,6 +12,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-Og" />
 					<Add option="-g" />
 				</Compiler>
 			</Target>
@@ -21,23 +22,29 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-O2" />
+					<Add option="-O3" />
+					<Add option="-m32" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add option="-m32" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-Weffc++" />
+			<Add option="-pedantic" />
+			<Add option="-Wextra" />
 			<Add option="-Wall" />
-			<Add option="-fexceptions" />
+			<Add option="-ansi" />
+			<Add option="-fexceptions -Werror" />
 		</Compiler>
+		<Unit filename="color.cpp" />
+		<Unit filename="color.h" />
 		<Unit filename="getch.cpp" />
 		<Unit filename="getch.h" />
 		<Unit filename="labirynt.cpp" />
 		<Unit filename="labirynt.h" />
-		<Unit filename="color.cpp" />
-		<Unit filename="color.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="pojemnik.cpp" />
 		<Unit filename="pojemnik.h" />
