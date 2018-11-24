@@ -31,7 +31,7 @@ using namespace std;
 color_mode g_color_mode=NO;
 bool ansichecked=false, ansiavailable=false;
 bool testansi() {
-    cout<<"Czy widzisz tekst ponizej na czerwono [t, n]?\n\n\33[31mprzykladowy tekst\33[0m\n\n";
+    cout<<"Czy poniższy tekst wyświetla Ci się na czerwono? [t, n]\n\n\33[31mprzykładowy tekst\33[0m\n\n";
     ansichecked=true;
     while(1) {
         char c = getch();
