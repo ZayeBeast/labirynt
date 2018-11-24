@@ -82,7 +82,7 @@ void winutf8() {
     cfi.cbSize = sizeof cfi;
     cfi.nFont = 0;
     cfi.dwFontSize.X = 0;
-    cfi.dwFontSize.Y = 12;
+    cfi.dwFontSize.Y = 28;
     cfi.FontFamily = FF_DONTCARE;
     cfi.FontWeight = FW_NORMAL;
     wcscpy(cfi.FaceName, L"Lucida Console");
@@ -127,6 +127,10 @@ void generateMap(size_t width, size_t height) {
   }
 }
 
+void calibrate() {
+    cerr<<"Tutaj powinna odbyc sie kalibracja klawiszy!\n";
+}
+
 char getEvent()
 
     {
@@ -134,6 +138,7 @@ char getEvent()
     }// pobierz znak
 void doEvent(char c) {
     c = toupper(c);
+    unsigned char strzalka =c;//zmienna tylko do strzalek
     COORDS n=player_coords;
     switch(c) {
         case 'W': --n.y; break;
@@ -141,6 +146,16 @@ void doEvent(char c) {
         case 'A': --n.x; break;
         case 'D': ++n.x; break;
     }
+    switch( strzalka ){
+        case 0: //klawisze specjalne (czasem 0 czasem 224 - zale¿ne od pc'ta chyba)
+        case 224: //klawisze specjalne
+        strzalka = getch();
+        switch( strzalka ){//to samo co wczesniej
+        case 72: --n.y; break;
+        case 80: ++n.y; break;
+        case 75:--n.x; break;
+        case 77:++n.x; break;
+        }}
     if(!isWall(n))
         player_coords = n;
 
@@ -158,11 +173,14 @@ void refreshBufor() { // załaduj mapę do bufora i nanieś na nie usera i wyjś
   drawOnBufor(player_coords, user_ch);
   drawOnBufor(end_coords, end_ch);
 }
-void viewBufor() { // wypisz bufor na ekran
+void clear_screen() {
   if(system(NULL)) // sprawdzanie czy konsola dostępna
     if(system("CLS")) // sprawdzanie czy komenda CLS zadziałała
       if(system("clear"))
         cout << string(0xFF, '\n');
+}
+void viewBufor() { // wypisz bufor na ekran
+  clear_screen();
   for(size_t i=0;i<size_map;++i) {
     for(size_t j=0;j<bufor[i].size();++j) {
       if(player_coords.x==j&&player_coords.y==i)
