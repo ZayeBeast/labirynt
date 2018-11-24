@@ -1,9 +1,12 @@
-/*
 MIT License
 
 Copyright (c) 2018 Nircek
+Copyright (c) 2018 MrDarkness19
+Copyright (c) 2018 Michal Hoffmann
+Copyright (c) 2018 GummyBear45
+Copyright (c) 2018 IgorBia
 
-Permission is hereby granted free of charge, to any person obtaining a copy
+Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -20,19 +23,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/
-#include <iostream>
-using namespace std;
-class pojemnik {
-    string s;
-    int part(int l, int r);
-    public:
-    pojemnik();
-    void sort(int l=0, int r=-1);
-    size_t len();
-    void push(string ns);
-    void set(size_t ix, string ns); //zwraca ":" jeżeli nie ma elementu o takim ID
-    size_t search(string q);
-    string get(size_t ix); //zwraca ":" jeżeli nie ma elementu o takim ID
-    string cont();
-};

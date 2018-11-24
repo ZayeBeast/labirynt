@@ -4,7 +4,7 @@
 string mapy="maps"; //folder, w którym są mapy
 string file_name;   //ścieżka do mapy
 string prev_file;   //nazwa poprzedniej mapy
-size_t SIZE=0;
+size_t size_map=0;
 string *bufor = NULL;
 vector<string> mapa;
 char user_ch='X', end_ch='O';
@@ -22,18 +22,18 @@ if(file.good()==false)
 
 }
 mapa.clear();
-SIZE = 0;
+size_map = 0;
 string line;
 while (getline(file, line)) {
     mapa.push_back(line);
-    ++SIZE;
+    ++size_map;
 }
 
 file.close();
 }
 
 bool isExist(COORDS p) { // sprawdza czy dane pole jest na mapie
-  if(p.y>=SIZE)return false;
+  if(p.y>=size_map)return false;
   return mapa[p.y].size()>=p.x;
 }
 
@@ -47,7 +47,7 @@ bool isWall(COORDS c)  // czy na podanych kordach nie ma spacji
 COORDS randomCoords(bool notWall) {
   COORDS c;
   do {
-    c.y = rand() % SIZE;
+    c.y = rand() % size_map;
     size_t s = mapa[c.y].size();
     if(s) // s != 0
       c.x = rand() % s;
@@ -58,11 +58,11 @@ void beginingcoords() { // bierze poczontkowe koordy i wrzuca do zmiennej
   player_coords = randomCoords();
 }
 void targetcoords() { // bierze koordy celu/wyjścia i wrzuca do zmiennej
-   int rozmiar ,rzmr,sm=SIZE,sn=SIZE ;
+   int rozmiar, rzmr;
     do{
         end_coords = randomCoords();
         rozmiar = sqrt(2*pow(mapa[0].size(),2))/2;
-        rzmr = sqrt(pow(player_coords.x-end_coords.x,2)+pow(player_coords.y-end_coords.y,2));
+        rzmr = sqrt(pow((int)(player_coords.x-end_coords.x),2)+pow((int)(player_coords.y-end_coords.y),2));
         cout << rzmr << " "<< rozmiar << endl;
     }while (rzmr<rozmiar);
 }
@@ -75,16 +75,32 @@ void set(COORDS c, char ch) {
     if(!isExist(c)) return;
     mapa[c.y][c.x] = ch;
 }
+void winutf8() {
+    #if __WIN32
+    CONSOLE_FONT_INFOEX cfi;
+    HANDLE hndl = GetStdHandle(STD_OUTPUT_HANDLE);
+    GetCurrentConsoleFontEx(hndl, false, &cfi);
+    cfi.cbSize = sizeof cfi;
+    cfi.nFont = 0;
+    cfi.dwFontSize.X = 0;
+    cfi.dwFontSize.Y = 28;
+    cfi.FontFamily = FF_DONTCARE;
+    cfi.FontWeight = FW_NORMAL;
+    wcscpy(cfi.FaceName, L"Lucida Console");
+    SetCurrentConsoleFontEx(hndl, 0, &cfi);
+    system("chcp 65001>nul");
+    #endif // __WIN32
+}
 
 // generuje mapę o podanych w parametrach wymiarach oraz zapisuje ją w zmiennej mapa
 void generateMap(size_t width, size_t height) {
   //src: https://gist.github.com/Nircek/7e1ee37e0bbc30f7ab554c633209a8d4/60b41682b6561b848b7d34ae338c9e8a9ca7ba6e#file-mazes-py-L75
-  SIZE = height;
-  for(int i=0;i<height;++i)
+  size_map = height;
+  for(size_t i=0;i<height;++i)
     mapa.push_back(string(width, '#'));
   COORDS c = randomCoords(false);
   set(c,' ');
-  int it = 0;
+  size_t it = 0;
   while(1) {
     c = randomCoords(false);
     int n = 0;
@@ -187,18 +203,21 @@ char drawOnBufor(COORDS C, char c) { // narysuj na x i y znak c i zwróć poprze
 }
 void refreshBufor() { // załaduj mapę do bufora i nanieś na nie usera i wyjście
   if(!bufor) delete[] bufor;
-  bufor = new string[SIZE];
-  for(size_t i=0; i<SIZE; ++i)
+  bufor = new string[size_map];
+  for(size_t i=0; i<size_map; ++i)
     bufor[i] = mapa[i];
   drawOnBufor(player_coords, user_ch);
   drawOnBufor(end_coords, end_ch);
 }
-void viewBufor() { // wypisz bufor na ekran
+void clear_screen() {
   if(system(NULL)) // sprawdzanie czy konsola dostępna
     if(system("CLS")) // sprawdzanie czy komenda CLS zadziałała
       if(system("clear"))
         cout << string(0xFF, '\n');
-  for(size_t i=0;i<SIZE;++i) {
+}
+void viewBufor() { // wypisz bufor na ekran
+  clear_screen();
+  for(size_t i=0;i<size_map;++i) {
     for(size_t j=0;j<bufor[i].size();++j) {
       if(player_coords.x==j&&player_coords.y==i)
         setColor(RED, BG);
@@ -217,7 +236,7 @@ bool isEnd() {// czy jesteśmy na kordach wyjścia
                 }
 #include "pojemnik.h"
 void animate() {
-  cout<<"Udało Ci się rozegrac mape \'"<<prev_file<<"\'.\n\nKlijnij dowolny przycisk, zeby zagrac w kolejna...";
+  cout<<"Udało Ci się przejść mapę \""<<prev_file<<"\".\n\nNaciśnij dowolny przycisk, żeby zagrać w następną...";
   getch();
 }
 bool doEnd(bool animation) {                  // wykonaj animację wygranej i przerzuć do następnego pliku
