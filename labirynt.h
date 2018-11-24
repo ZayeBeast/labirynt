@@ -32,7 +32,7 @@ BOOL WINAPI SetCurrentConsoleFontEx(HANDLE, BOOL, PCONSOLE_FONT_INFOEX);
 using namespace std;
 
 //struktury
-typedef struct{int x; int y;} COORDS;
+typedef struct{size_t x; size_t y;} COORDS;
 
 //definicje
 #define NO_EVENT            0

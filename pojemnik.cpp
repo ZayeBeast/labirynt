@@ -39,6 +39,8 @@ int pojemnik::part(int l, int r){
         else return j;
     }
 }
+pojemnik::pojemnik() : s("")
+{}
 void pojemnik::sort(int l, int r) {
     // QuickSort
     if(r==-1)r=len()-1;

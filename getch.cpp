@@ -32,7 +32,7 @@ SOFTWARE.
 char getch(){
     // src: https://stackoverflow.com/a/16361724/6732111
     char buf=0;
-    struct termios old={0};
+    struct termios old;
     std::cout.flush();
     if(tcgetattr(0, &old)<0)
         throw "tcsetattr()";

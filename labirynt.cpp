@@ -57,11 +57,11 @@ void beginingcoords() { // bierze poczontkowe koordy i wrzuca do zmiennej
   player_coords = randomCoords();
 }
 void targetcoords() { // bierze koordy celu/wyjścia i wrzuca do zmiennej
-   int rozmiar ,rzmr,sm=size_map,sn=size_map ;
+   int rozmiar, rzmr;
     do{
         end_coords = randomCoords();
         rozmiar = sqrt(2*pow(mapa[0].size(),2))/2;
-        rzmr = sqrt(pow(player_coords.x-end_coords.x,2)+pow(player_coords.y-end_coords.y,2));
+        rzmr = sqrt(pow((int)(player_coords.x-end_coords.x),2)+pow((int)(player_coords.y-end_coords.y),2));
         cout << rzmr << " "<< rozmiar << endl;
     }while (rzmr<rozmiar);
 }
@@ -95,11 +95,11 @@ void winutf8() {
 void generateMap(size_t width, size_t height) {
   //src: https://gist.github.com/Nircek/7e1ee37e0bbc30f7ab554c633209a8d4/60b41682b6561b848b7d34ae338c9e8a9ca7ba6e#file-mazes-py-L75
   size_map = height;
-  for(int i=0;i<height;++i)
+  for(size_t i=0;i<height;++i)
     mapa.push_back(string(width, '#'));
   COORDS c = randomCoords(false);
   set(c,' ');
-  int it = 0;
+  size_t it = 0;
   while(1) {
     c = randomCoords(false);
     int n = 0;
