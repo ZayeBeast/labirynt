@@ -15,6 +15,9 @@ Labirynt tworzy 5 osób:
 ## Technologie
 * C++ - zgodność ze standardem C++98.
 
+## Pobranie skompilowanej wersji programu
+Jeżeli interesuje Cię tylko szybkie uruchomienie programu bez zbędnego przejmowania się kodem to wystarczy, że wejdziesz na [tę stronę](https://github.com/Nircek/labirynt/releases/latest), a następnie znajdziesz wersję, która odpowiada Twojemu systemowi (dostępne *.exe na Windowsy i *.out na Linuxy) i uruchomisz ją.
+
 ## Setup
 Zainstaluj w swoim systemie gita, zgodnie z [instrukcjami](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 Następnie włącz konsolę z możliwością używania gita i wpisz:
