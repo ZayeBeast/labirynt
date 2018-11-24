@@ -88,7 +88,7 @@ switch(wybor)
     case '5':
         clear_screen();
         cout<<"Nastapi wyjscie z programu"<<endl;
-        getchar();
+        getch();
         return 0;
     break;
 
