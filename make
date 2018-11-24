@@ -12,10 +12,11 @@ fi
 echo GET $E
 if [ "$2" != "o" ]; then
   if [ "$E" = "0" ]; then
-    /usr/bin/time --quiet -f'\nTime %U. Exit %x. Memory %M.' ./a.out
-    if [ "$?" = "127" ]; then
+    if [ -e /usr/bin/time ]; then
+      /usr/bin/time --quiet -f'\nTime %U. Exit %x. Memory %M.' ./a.out
+    else
       ./a.out
-      echo "\nTime n/a. Exit $?. Memory n/a."
+      echo -e "\nTime n/a. Exit $?. Memory n/a."
     fi
   fi
 fi
