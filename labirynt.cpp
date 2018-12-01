@@ -240,7 +240,6 @@ void animate() {
   getch();
 }
 bool doEnd(bool animation) {                  // wykonaj animację wygranej i przerzuć do następnego pliku
-
    size_t index;
    if(animation)
      animate();
