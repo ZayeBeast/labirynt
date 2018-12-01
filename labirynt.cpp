@@ -6,6 +6,7 @@ string file_name;   //ścieżka do mapy
 string prev_file;   //nazwa poprzedniej mapy
 size_t size_map=0;
 string *bufor = NULL;
+char buffor[10];
 vector<string> mapa;
 char user_ch='X', end_ch='O';
 COORDS player_coords;
@@ -28,7 +29,6 @@ while (getline(file, line)) {
     mapa.push_back(line);
     ++size_map;
 }
-
 file.close();
 }
 
@@ -130,7 +130,6 @@ void generateMap(size_t width, size_t height) {
 void pobranie(int a)
 {
             time_t koniec;
-            int i=0;
             char cos;
             bool b=false;
             while(true)
@@ -141,7 +140,6 @@ void pobranie(int a)
                 koniec= time(NULL) + 1 ;
                 b=true;
             }
-
             if (time(NULL)>=koniec) break;
             znak[a]+=cos;
         }
@@ -149,47 +147,74 @@ void pobranie(int a)
 
 void calibrate() {
 string napis[4];
-
-
     napis[0]="lewo";
     napis[1]="prawo";
     napis[2]="gore";
     napis[3]="dol";
-
-
-        int i=0;
-        for(i;i<4;i++)
+        for(int i=0;i<4;i++)
         {
-         cout<<"wcisnij strzalke w (poczekaj ok 1s)"<<napis[i]<<endl;
+         cout<<"wcisnij strzalke w "<<napis[i]<<" (poczekaj ok. 1s)"<<endl;
         pobranie(i);
         }
 }
-
-char getEvent()
-
+void zapisz(int a)
     {
-        return getch();
-    }// pobierz znak
-void doEvent(char c) {
-    c = toupper(c);
-    string strzalka;
-    strzalka[0] =c;//zmienna tylko do strzalek
+        for(int i=0;i<a;i++)
+        {
+        for(int i=9;i<0;i--)
+        {
+            buffor[i-1]=buffor[i];
+        }
+        buffor[0]=getch();
+        }
+    }
+
+int getEvent()
+    {
+        int a=0;
+        string strzalka;
+        int cz=znak[0].length();
+        int b=cz;
+        zapisz(1);
+        switch(buffor[0])
+        {
+        case 'w': a=UP_ARROW_EVENT; break;
+        case 's': a=DOWN_ARROW_EVENT; break;
+        case 'a': a=LEFT_ARROW_EVENT; break;
+        case 'd': a=RIGHT_ARROW_EVENT; break;
+        }
+        if(a==NO_EVENT)
+        {
+            zapisz(1);
+            if (buffor[0]==znak[0][1]) goto dalej;
+            if (buffor[0]==znak[1][1]) goto dalej;
+            if (buffor[0]==znak[2][1]) goto dalej;
+            if (buffor[0]==znak[3][1]) goto dalej;
+            return NO_EVENT;
+            dalej:
+            zapisz(cz-2);
+            for(int i=0;i<cz;i++)
+            {
+                strzalka+=buffor[b-1];
+                b--;
+            }
+            if (strzalka==znak[0]) a=UP_ARROW_EVENT;
+            if (strzalka==znak[1]) a=DOWN_ARROW_EVENT;
+            if (strzalka==znak[2]) a=LEFT_ARROW_EVENT;
+            if (strzalka==znak[3]) a=RIGHT_ARROW_EVENT;
+        }
+
+
+        return a;
+    }
+void doEvent(int c) {
     COORDS n=player_coords;
     switch(c) {
-        case 'W': --n.y; break;
-        case 'S': ++n.y; break;
-        case 'A': --n.x; break;
-        case 'D': ++n.x; break;
+        case UP_ARROW_EVENT: --n.y; break;
+        case DOWN_ARROW_EVENT: ++n.y; break;
+        case LEFT_ARROW_EVENT: --n.x; break;
+        case RIGHT_ARROW_EVENT: ++n.x; break;
     }
-    int cz=znak[0].length();
-    for(int i=1;i<cz;i++)
-    {
-        strzalka[i]+=getch();
-    }
-    if (strzalka==znak[0]) --n.x;
-    if (strzalka==znak[1]) ++n.x;
-    if (strzalka==znak[2]) --n.y;
-    if (strzalka==znak[3]) ++n.y;
 
 
     if(!isWall(n))

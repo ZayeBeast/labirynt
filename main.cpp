@@ -38,7 +38,7 @@ int main() {
     cout<<"      #     | 1. - Kampania              |     #   "       <<endl;
     cout<<"       #####| 2. - Losowa mapa           |#####    "       <<endl;
     cout<<"      #     | 3. - Wyswietl tworcow      |     #   "       <<endl;
-    cout<<"     #      | 4. - Kalibracja klawiszy   |      #  "       <<endl;
+    cout<<"     #      | 4. - Kalibracja strzalek   |      #  "       <<endl;
     cout<<"    #       | 5. - Wyjdz                 |       # "       <<endl;
     cout<<"   #        |------------MENU------------|        #"       <<endl;
     cout<<"   ################################################"       <<endl<<endl<<endl;
