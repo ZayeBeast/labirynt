@@ -11,7 +11,7 @@ vector<string> mapa;
 char user_ch='X', end_ch='O';
 COORDS player_coords;
 COORDS end_coords;
-string znak[4];
+string znak[4] = {"w","a","s","d"};
 
 void getMap()
 {
@@ -147,10 +147,10 @@ void pobranie(int a)
 
 void calibrate() {
 string napis[4];
-    napis[0]="lewo";
-    napis[1]="prawo";
-    napis[2]="gore";
-    napis[3]="dol";
+    napis[0]="gore";
+    napis[1]="lewo";
+    napis[2]="dol";
+    napis[3]="gore";
         for(int i=0;i<4;i++)
         {
          cout<<"wcisnij strzalke w "<<napis[i]<<" (poczekaj ok. 1s)"<<endl;
@@ -170,29 +170,16 @@ void zapisz()
 int getEvent()
     {
         string strzalka;
-        int a=0;
         zapisz();
-        switch(buffor[9])
-        {
-        case 'w': a=UP_ARROW_EVENT; break;
-        case 's': a=DOWN_ARROW_EVENT; break;
-        case 'a': a=LEFT_ARROW_EVENT; break;
-        case 'd': a=RIGHT_ARROW_EVENT; break;
-        }
-
-
-            strzalka=buffor.substr((10-znak[0].length()),znak[0].length());
-            if (strzalka==znak[0]) a=UP_ARROW_EVENT;
-            strzalka=buffor.substr((10-znak[1].length()),znak[1].length());
-            if (strzalka==znak[1]) a=DOWN_ARROW_EVENT;
-            strzalka=buffor.substr((10-znak[2].length()),znak[2].length());
-            if (strzalka==znak[2]) a=LEFT_ARROW_EVENT;
-            strzalka=buffor.substr((10-znak[3].length()),znak[3].length());
-            if (strzalka==znak[3]) a=RIGHT_ARROW_EVENT;
-            else a=NO_EVENT;
-
-
-        return a;
+        if(buffor.substr( buffor.size()-znak[0].length(), znak[0].length()) == znak[0])
+          return UP_ARROW_EVENT;
+        if(buffor.substr( buffor.size()-znak[1].length(), znak[1].length()) == znak[1])
+          return LEFT_ARROW_EVENT;
+        if(buffor.substr( buffor.size()-znak[2].length(), znak[2].length()) == znak[2])
+          return DOWN_ARROW_EVENT;
+        if(buffor.substr( buffor.size()-znak[3].length(), znak[3].length()) == znak[3])
+          return RIGHT_ARROW_EVENT;
+        return NO_EVENT;
     }
 void doEvent(int c) {
     COORDS n=player_coords;
