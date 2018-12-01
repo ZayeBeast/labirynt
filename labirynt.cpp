@@ -6,7 +6,7 @@ string file_name;   //ścieżka do mapy
 string prev_file;   //nazwa poprzedniej mapy
 size_t size_map=0;
 string *bufor = NULL;
-char buffor[10];
+string buffor="0123456789";
 vector<string> mapa;
 char user_ch='X', end_ch='O';
 COORDS player_coords;
@@ -157,52 +157,39 @@ string napis[4];
         pobranie(i);
         }
 }
-void zapisz(int a)
+void zapisz()
     {
-        for(int i=0;i<a;i++)
+        for(int i=0;i<9;i++)
         {
-        for(int i=9;i<0;i--)
-        {
-            buffor[i-1]=buffor[i];
+            buffor[i]=buffor[i+1];
         }
-        buffor[0]=getch();
-        }
+        buffor[9]=getch();
+        buffor=buffor.substr(0,10);
     }
 
 int getEvent()
     {
-        int a=0;
         string strzalka;
-        int cz=znak[0].length();
-        int b=cz;
-        zapisz(1);
-        switch(buffor[0])
+        int a=0;
+        zapisz();
+        switch(buffor[9])
         {
         case 'w': a=UP_ARROW_EVENT; break;
         case 's': a=DOWN_ARROW_EVENT; break;
         case 'a': a=LEFT_ARROW_EVENT; break;
         case 'd': a=RIGHT_ARROW_EVENT; break;
         }
-        if(a==NO_EVENT)
-        {
-            zapisz(1);
-            if (buffor[0]==znak[0][1]) goto dalej;
-            if (buffor[0]==znak[1][1]) goto dalej;
-            if (buffor[0]==znak[2][1]) goto dalej;
-            if (buffor[0]==znak[3][1]) goto dalej;
-            return NO_EVENT;
-            dalej:
-            zapisz(cz-2);
-            for(int i=0;i<cz;i++)
-            {
-                strzalka+=buffor[b-1];
-                b--;
-            }
+
+
+            strzalka=buffor.substr((10-znak[0].length()),znak[0].length());
             if (strzalka==znak[0]) a=UP_ARROW_EVENT;
+            strzalka=buffor.substr((10-znak[1].length()),znak[1].length());
             if (strzalka==znak[1]) a=DOWN_ARROW_EVENT;
+            strzalka=buffor.substr((10-znak[2].length()),znak[2].length());
             if (strzalka==znak[2]) a=LEFT_ARROW_EVENT;
+            strzalka=buffor.substr((10-znak[3].length()),znak[3].length());
             if (strzalka==znak[3]) a=RIGHT_ARROW_EVENT;
-        }
+            else a=NO_EVENT;
 
 
         return a;
@@ -214,6 +201,7 @@ void doEvent(int c) {
         case DOWN_ARROW_EVENT: ++n.y; break;
         case LEFT_ARROW_EVENT: --n.x; break;
         case RIGHT_ARROW_EVENT: ++n.x; break;
+
     }
 
 
