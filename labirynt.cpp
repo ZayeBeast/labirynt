@@ -132,6 +132,7 @@ void pobranie(int a)
             time_t koniec;
             char cos;
             bool b=false;
+            znak[a]="";
             while(true)
         {
             cos=getch();
@@ -150,7 +151,7 @@ string napis[4];
     napis[0]="gore";
     napis[1]="lewo";
     napis[2]="dol";
-    napis[3]="gore";
+    napis[3]="prawo";
         for(int i=0;i<4;i++)
         {
          cout<<"wcisnij strzalke w "<<napis[i]<<" (poczekaj ok. 1s)"<<endl;
