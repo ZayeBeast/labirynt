@@ -148,13 +148,13 @@ void pobranie(int a)
 
 void calibrate() {
 string napis[4];
-    napis[0]="gore";
+    napis[0]="górę";
     napis[1]="lewo";
-    napis[2]="dol";
+    napis[2]="dół";
     napis[3]="prawo";
         for(int i=0;i<4;i++)
         {
-         cout<<"wcisnij strzalke w "<<napis[i]<<" (poczekaj ok. 1s)"<<endl;
+         cout<<"wciśnij strzałkę w "<<napis[i]<<", poczekaj 1s i potwierdź enterem"<<endl;
         pobranie(i);
         }
 }
@@ -170,15 +170,14 @@ void zapisz()
 
 int getEvent()
     {
-        string strzalka;
         zapisz();
-        if(buffor.substr( buffor.size()-znak[0].length(), znak[0].length()) == znak[0])
+        if(buffor.substr(buffor.size()-znak[0].length()) == znak[0])
           return UP_ARROW_EVENT;
-        if(buffor.substr( buffor.size()-znak[1].length(), znak[1].length()) == znak[1])
+        if(buffor.substr(buffor.size()-znak[1].length()) == znak[1])
           return LEFT_ARROW_EVENT;
-        if(buffor.substr( buffor.size()-znak[2].length(), znak[2].length()) == znak[2])
+        if(buffor.substr(buffor.size()-znak[2].length()) == znak[2])
           return DOWN_ARROW_EVENT;
-        if(buffor.substr( buffor.size()-znak[3].length(), znak[3].length()) == znak[3])
+        if(buffor.substr(buffor.size()-znak[3].length()) == znak[3])
           return RIGHT_ARROW_EVENT;
         return NO_EVENT;
     }
