@@ -9,8 +9,8 @@ Labirynt tworzy 5 osób:
 * [Nircek](https://github.com/Nircek) (Marcin Zepp)
 * [MrDarkness19](https://github.com/MrDarkness19) (Igor Wysocki)
 * [Gummybear45](https://github.com/GummyBear45) (Dawid Siekański)
-* [Crackhoff](https://github.com/IgorBia) (Michał Hoffmann)
-* [IgorBia](https://github.com/Crackhoff) (Igor Białas)
+* [Crackhoff](https://github.com/Crackhoff) (Michał Hoffmann)
+* [IgorBia](https://github.com/IgorBia) (Igor Białas)
 
 ## Technologie
 * C++ - zgodność ze standardem C++98.
