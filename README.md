@@ -1,4 +1,4 @@
-# Labirynt [![Build Status](https://travis-ci.com/Nircek/labirynt.svg?branch=master)](https://travis-ci.com/Nircek/labirynt) 
+# Labirynt [![Build Status](https://travis-ci.com/Nircek/labirynt.svg?branch=master)](https://travis-ci.com/Nircek/labirynt) [![CodeFactor](https://www.codefactor.io/repository/github/nircek/labirynt/badge)](https://www.codefactor.io/repository/github/nircek/labirynt)
 > Prosta gra.
 
 ## Ogólne informacje
