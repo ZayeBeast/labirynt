@@ -1,4 +1,4 @@
-# Labirynt
+# Labirynt [![Build Status](https://travis-ci.com/Nircek/labirynt.svg?branch=master)](https://travis-ci.com/Nircek/labirynt) 
 > Prosta gra.
 
 ## Ogólne informacje
