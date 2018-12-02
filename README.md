@@ -40,7 +40,7 @@ Ponadto, jeżeli jesteś na systemie unixopodobnym, powinieneś być w stanie we
 Więcej funkcjonalności, które będą w przyszłości, można zobaczyć w [issues](https://github.com/Nircek/labirynt/issues). 
 
 ## Status
-Projekt jest: _w trakcie tworzenia_
+Projekt jest: _wydany w wersji stabilnej_.
 
 ## Kontakt
 [Nircek](mailto:m.zepp@outlook.com)
