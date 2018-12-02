@@ -3,26 +3,10 @@
 #include <ctime>       /* time */
 #include "getch.h"
 #include "labirynt.h"
-#define DEBUG false
 
 int main() {
     char wybor=0;
     try {
-        if(DEBUG) {
-            cout << "type \'c\' to break\n";
-            char ch;
-            while(1) {
-              ch=getch();
-              if(ch=='c')break;
-              cout<<(unsigned int)ch<<' ';
-            }
-        }
-        if(DEBUG) {
-            cout<<"Naciskaj kolejne klawisze strzalek, zeby przetestowac kalibracje.\n";
-            while(1) {
-                cout<<getEvent()<<' ';
-            }
-        }
     winutf8();
     if(isModeAvailable(WIN))g_color_mode=WIN;
     else if(isModeAvailable(ANSI))g_color_mode=ANSI;
@@ -37,9 +21,9 @@ int main() {
     cout<<"     #      | Wybierz:                   |      #  "       <<endl;
     cout<<"      #     | 1. - Kampania              |     #   "       <<endl;
     cout<<"       #####| 2. - Losowa mapa           |#####    "       <<endl;
-    cout<<"      #     | 3. - Wyswietl tworcow      |     #   "       <<endl;
-    cout<<"     #      | 4. - Kalibracja klawiszy   |      #  "       <<endl;
-    cout<<"    #       | 5. - Wyjdz                 |       # "       <<endl;
+    cout<<"      #     | 3. - Wyświetl twórców      |     #   "       <<endl;
+    cout<<"     #      | 4. - Kalibracja strzałek   |      #  "       <<endl;
+    cout<<"    #       | 5. - Wyjdź                 |       # "       <<endl;
     cout<<"   #        |------------MENU------------|        #"       <<endl;
     cout<<"   ################################################"       <<endl<<endl<<endl;
     cout<<"         Wybieram: ";
@@ -61,8 +45,8 @@ switch(wybor)
             clear_screen();
             size_t cordy1, cordy2;
             cout<<"Wybierz rozmiar mapy: "<<endl;
-            cout<<"Podaj szerokosc: ";cin>>cordy1;
-            cout<<"Podaj wysokosc: ";cin>>cordy2;
+            cout<<"Podaj szerokość: ";cin>>cordy1;
+            cout<<"Podaj wysokość: ";cin>>cordy2;
             generateMap(cordy1,cordy2);
             loop();
             won=true;
@@ -87,7 +71,7 @@ switch(wybor)
 
     case '5':
         clear_screen();
-        cout<<"Nastapi wyjscie z programu"<<endl;
+        cout<<"Nastąpi wyjście z programu"<<endl;
         getch();
         return 0;
     break;

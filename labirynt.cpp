@@ -1,15 +1,17 @@
 #include "labirynt.h"
-
+#include <ctime>
 // zmienne globalne
 string mapy="maps"; //folder, w którym są mapy
 string file_name;   //ścieżka do mapy
 string prev_file;   //nazwa poprzedniej mapy
 size_t size_map=0;
 string *bufor = NULL;
+string buffor="0123456789";
 vector<string> mapa;
 char user_ch='X', end_ch='O';
 COORDS player_coords;
 COORDS end_coords;
+string znak[4] = {"w","a","s","d"};
 
 void getMap()
 {
@@ -27,7 +29,6 @@ while (getline(file, line)) {
     mapa.push_back(line);
     ++size_map;
 }
-
 file.close();
 }
 
@@ -126,36 +127,71 @@ void generateMap(size_t width, size_t height) {
     }
   }
 }
-
-void calibrate() {
-    cerr<<"Tutaj powinna odbyc sie kalibracja klawiszy!\n";
+void pobranie(int a)
+{
+            time_t koniec;
+            char cos;
+            bool b=false;
+            znak[a]="";
+            while(true)
+        {
+            cos=getch();
+            if(!b)
+            {
+                koniec= time(NULL) + 1 ;
+                b=true;
+            }
+            if (time(NULL)>=koniec) break;
+            znak[a]+=cos;
+        }
 }
 
-char getEvent()
-
+void calibrate() {
+string napis[4];
+    napis[0]="górę";
+    napis[1]="lewo";
+    napis[2]="dół";
+    napis[3]="prawo";
+        for(int i=0;i<4;i++)
+        {
+         cout<<"wciśnij strzałkę w "<<napis[i]<<", poczekaj 1s i potwierdź enterem"<<endl;
+        pobranie(i);
+        }
+}
+void zapisz()
     {
-        return getch();
-    }// pobierz znak
-void doEvent(char c) {
-    c = toupper(c);
-    unsigned char strzalka =c;//zmienna tylko do strzalek
+        for(int i=0;i<9;i++)
+        {
+            buffor[i]=buffor[i+1];
+        }
+        buffor[9]=getch();
+        buffor=buffor.substr(0,10);
+    }
+
+int getEvent()
+    {
+        zapisz();
+        if(buffor.substr(buffor.size()-znak[0].length()) == znak[0])
+          return UP_ARROW_EVENT;
+        if(buffor.substr(buffor.size()-znak[1].length()) == znak[1])
+          return LEFT_ARROW_EVENT;
+        if(buffor.substr(buffor.size()-znak[2].length()) == znak[2])
+          return DOWN_ARROW_EVENT;
+        if(buffor.substr(buffor.size()-znak[3].length()) == znak[3])
+          return RIGHT_ARROW_EVENT;
+        return NO_EVENT;
+    }
+void doEvent(int c) {
     COORDS n=player_coords;
     switch(c) {
-        case 'W': --n.y; break;
-        case 'S': ++n.y; break;
-        case 'A': --n.x; break;
-        case 'D': ++n.x; break;
+        case UP_ARROW_EVENT: --n.y; break;
+        case DOWN_ARROW_EVENT: ++n.y; break;
+        case LEFT_ARROW_EVENT: --n.x; break;
+        case RIGHT_ARROW_EVENT: ++n.x; break;
+
     }
-    switch( strzalka ){
-        case 0: //klawisze specjalne (czasem 0 czasem 224 - zale¿ne od pc'ta chyba)
-        case 224: //klawisze specjalne
-        strzalka = getch();
-        switch( strzalka ){//to samo co wczesniej
-        case 72: --n.y; break;
-        case 80: ++n.y; break;
-        case 75:--n.x; break;
-        case 77:++n.x; break;
-        }}
+
+
     if(!isWall(n))
         player_coords = n;
 
@@ -204,7 +240,6 @@ void animate() {
   getch();
 }
 bool doEnd(bool animation) {                  // wykonaj animację wygranej i przerzuć do następnego pliku
-
    size_t index;
    if(animation)
      animate();
@@ -245,4 +280,3 @@ void loop() {
             break;
     }
 }
-

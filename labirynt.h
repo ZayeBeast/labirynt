@@ -64,8 +64,8 @@ void set(COORDS, char);
 void calibrate(); //kalibracja klawiszy strzałek
 void winutf8();
 void generateMap(size_t width=size_map, size_t height=size_map); // generuje mapę o podanych w parametrach wymiarach oraz zapisuje ją w zmiennej mapa
-char getEvent(); //pobierz znak
-void doEvent(char); // wykonaj operację przypisaną do danego znaku (np WSAD)
+int getEvent(); //pobierz znak
+void doEvent(int); // wykonaj operację przypisaną do danego znaku (np WSAD)
 char drawOnBufor(COORDS, char); // narysuj na x i y znak c i zwróć poprzednie co tam było
 void refreshBufor(); // załaduj mapę do bufora i nanieś na nie usera i wyjście
 void clear_screen();
