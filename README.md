@@ -1,4 +1,4 @@
-# Labirynt
+# Labirynt [![Build Status](https://travis-ci.com/Nircek/labirynt.svg?branch=master)](https://travis-ci.com/Nircek/labirynt) [![CodeFactor](https://www.codefactor.io/repository/github/nircek/labirynt/badge)](https://www.codefactor.io/repository/github/nircek/labirynt)
 > Prosta gra.
 
 ## Ogólne informacje
@@ -6,11 +6,11 @@ Ten projekt jest demonstracją używania gita w grupie.
 
 ## Autorzy
 Labirynt tworzy 5 osób:
-* Nircek (Marcin Zepp)
-* MrDarkness19 (Igor Wysocki)
-* Crackhoff (Michał Hoffmann)
-* Gummybear45 (Dawid Siekański)
-* IgorBia (Igor Białas)
+* [Nircek](https://github.com/Nircek) (Marcin Zepp)
+* [MrDarkness19](https://github.com/MrDarkness19) (Igor Wysocki)
+* [Gummybear45](https://github.com/GummyBear45) (Dawid Siekański)
+* [Crackhoff](https://github.com/Crackhoff) (Michał Hoffmann)
+* [IgorBia](https://github.com/IgorBia) (Igor Białas)
 
 ## Technologie
 * C++ - zgodność ze standardem C++98.
@@ -35,13 +35,12 @@ Ponadto, jeżeli jesteś na systemie unixopodobnym, powinieneś być w stanie we
 * Multiplayer
 * Dźwięki i muzyka
 * Uniwersalne menu
-* Obsługa strzałek
 * Ikony
 
 Więcej funkcjonalności, które będą w przyszłości, można zobaczyć w [issues](https://github.com/Nircek/labirynt/issues). 
 
 ## Status
-Projekt jest: _w trakcie tworzenia_
+Projekt jest: _wydany w wersji stabilnej_.
 
 ## Kontakt
 [Nircek](mailto:m.zepp@outlook.com)
