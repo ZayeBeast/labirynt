@@ -1,4 +1,4 @@
-# Labirynt [![Build Status](https://travis-ci.com/Nircek/labirynt.svg?branch=master)](https://travis-ci.com/Nircek/labirynt) [![CodeFactor](https://www.codefactor.io/repository/github/nircek/labirynt/badge)](https://www.codefactor.io/repository/github/nircek/labirynt)
+# Labirynt [![Build Status](https://travis-ci.com/Zayebeast/labirynt.svg?branch=master)](https://travis-ci.com/Zayebeast/labirynt) [![CodeFactor](https://www.codefactor.io/repository/github/zayebeast/labirynt/badge)](https://www.codefactor.io/repository/github/zayebeast/labirynt)
 > Prosta gra.
 
 ## Ogólne informacje
@@ -44,4 +44,3 @@ Projekt jest: _wydany w wersji stabilnej_.
 
 ## Kontakt
 [Nircek](mailto:m.zepp@outlook.com)
-
